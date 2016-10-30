@@ -1,4 +1,4 @@
-# Formalize
+# Quizfoo
 
 [Heroku](https://formalize.herokuapp.com/)
 [Trello](https://trello.com/b/9szx69wF/wufoo-clone)
@@ -9,10 +9,10 @@ Formalize is a web application inspired by Wufoo. The application will be build 
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Build Forms
-- [ ] Build Various Question Types
-- [ ] Share Forms
-- [ ] Display Results
+- [ ] Create Quizzes
+- [ ] Create Various Question Types
+- [ ] Share Quiz with Students
+- [ ] View Results
 
 ## Design Docs
 
@@ -34,24 +34,24 @@ Formalize is a web application inspired by Wufoo. The application will be build 
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Forms (2 days)
+### Phase 2: Quizzes (2 days)
 
-**Objective:** Forms can be created, edited and destroyed through
+**Objective:** Teachers can create, edit and destroy Quizzes through
 the API.
 
 ### Phase 3: Questions (1 day)
 
-**Objective:** Questions belong to Forms and can be created, edited and destroyed through the API.
+**Objective:** Questions belong to Quizzes and can be created, edited and destroyed through the API.
 
 ### Phase 4: Sharing (2 days)
 
-**Objective:** Forms can be shared with multiple Users and Users can answer Forms.
+**Objective:** Quizzes can be shared with Students in the class and Students can answer Quizzes.
 
 ### Phase 5: Results (2 days)
 
-**Objective:** Users can view the Results of each question of their Forms.
+**Objective:** Teachers can view the results of each question of their Quizzes.
 
 ### Bonus Features (TBD)
-- [ ] Style Forms
+- [ ] Style Quizzes
 - [ ] Graph Results
-- [ ] Email forms to Organization/Group
+- [ ] Email quizzes to Students in the class
