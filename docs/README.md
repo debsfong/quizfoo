@@ -1,6 +1,6 @@
 # Quizfoo
 
-[Heroku](https://formalize.herokuapp.com/)
+[Heroku](https://quizfoo.herokuapp.com/)
 [Trello](https://trello.com/b/9szx69wF/wufoo-clone)
 
 ## Minimum Viable Product
@@ -54,4 +54,6 @@ the API.
 ### Bonus Features (TBD)
 - [ ] Style Quizzes
 - [ ] Graph Results
+- [ ] Score Quizzes
+- [ ] Allow Parents to view Students' Past Quizzes
 - [ ] Email quizzes to Students in the class
