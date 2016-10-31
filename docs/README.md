@@ -22,7 +22,7 @@ Formalize is a web application inspired by Wufoo. The application will be build 
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: ./wireframes/
+[wireframes]: ./wireframes
 [components]: ./component-hierarchy.md
 [sample-state]: ./sample-state.md
 [api-endpoints]: ./api-endpoints.md
@@ -30,16 +30,16 @@ Formalize is a web application inspired by Wufoo. The application will be build 
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+### Phase 1: Backend setup and Front End User Authentication (1 days)
 
 **Objective:** Functioning rails project with front-end Authentication
 
 ### Phase 2: Quizzes (2 days)
 
-**Objective:** Teachers can create, edit and destroy Quizzes through
+**Objective:** Teachers can create, edit and destroy Quizzes and Classes through
 the API.
 
-### Phase 3: Questions (1 day)
+### Phase 3: Questions (2 day)
 
 **Objective:** Questions belong to Quizzes and can be created, edited and destroyed through the API.
 
@@ -52,8 +52,10 @@ the API.
 **Objective:** Teachers can view the results of each question of their Quizzes.
 
 ### Bonus Features (TBD)
+- [ ] Students can join classes
 - [ ] Style Quizzes
 - [ ] Graph Results
+- [ ] Make Questions Required
 - [ ] Score Quizzes
 - [ ] Allow Parents to view Students' Past Quizzes
 - [ ] Email quizzes to Students in the class

@@ -4,54 +4,51 @@
  - AuthForm
 
 **HomeContainer**
- - Home
+ - Header
  - Sidebar
+  * ClassSearch
+  * ClassIndex
+    + ClassIndexItem
+      - DeleteButton
+        * Alert
+  * AddClassButton
+    + NewClassForm (popup for title)
 
-**QuizsContainer**
- - QuizsHeader
-  * QuizIndex
+**ClassContainer**
+- Header
+- ClassHeaderTools
+  * EditClassButton
+  * AddStudentsButton
+- CreateQuizButton
+  * CreateQuizForm (popup for title)
+- QuizzesIndex
+  * QuizIndexItem
 
-**QuizbookContainer**
- - QuizbookHeader
-  + QuizIndex
+**QuizContainer**
+- Header
+- QuizHeaderTools
+  * BackToClassButton
+  * CreateButton
+    + CreateSidebar
+      - QuizTitle
+      - QuestionsIndex
+        * QuestionIndexItem
+          + TypeInput
+          + QuestionInput
+          + ChoicesInput
+      - AddQuestionButton
+    + QuestionsContainer
+      - QuestionIndexItem
+  * AnalyzeButton
+    + QuizTitle
+    + SummaryButton
+      - QuestionsIndex
+      - StudentResponseTable
+    + IndividualButton
+      - StudentsIndex
+      - QuestionResponseTable
+  * PreviewQuizButton
 
-**SearchResultsContainer**
- - Search
- - QuizIndex
-
-**TagContainer**
- - QuizbookHeader
-  + QuizIndex
-
-**QuizIndex**
- - QuizIndexItem
-  + QuizDetail
-    + QuizTools
-    - QuizbookSearch
-    - Tags
-      - Tag
-    * Quiz
-
-**NewQuizContainer**
- - NewQuiz
-  - RTETools
-  - NewQuizButton
-
-**Search**
-
-**NewQuizbook**
- - NewQuizbook
-
-**NewTag**
- - NewTag
-
-**QuizbookSearch**
- + AutoSearch
- * AutoSearchResults
-
-**TagsSearch**
- + AutoSearch
- * AutoSearchResults
 
 ## Routes
 
@@ -60,15 +57,7 @@
 | "/" | "SplashPage" |
 | "/signup" | "AuthFormContainer" |
 | "/signin" | "AuthFormContainer" |
-| "/teacher/class/:classId" | "ClassesContainer" |
-| "/teacher/class/:classId/quiz" | "QuizzesContainer" |
-| "/teacher/class/:classId/quiz/:quizId" | "QuizzesContainer" |
-| "/home/quizbook/:quizbookId/quiz/:quizId" | "QuizbookContainer" |
-| "/home/tag/:tagId/quiz/:quizdId" | "TagContainer" |
-| "/home/search-results" | "SearchResultsContainer"
-| "/new-quiz" | "NewQuizContainer" |
-| "/search" | "Search" |
-| "/new-quizbook" | "NewQuizbook" |
-| "/new-tag" | "NewTag" |
-| "/tag-search" | "TagSearch" |
-| "/quizbook-search" | "QuizbookSearch" |
+| "/home" | "HomeContainer" |
+| "/class/:classId" | "ClassContainer" |
+| "/quiz/:quizId/create" | "QuizContainer" |
+| "/quiz/:quizId/analyze" | "QuizContainer" |

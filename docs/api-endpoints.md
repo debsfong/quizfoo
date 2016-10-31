@@ -12,7 +12,6 @@
 
 - `POST /api/users`
   - create account
-- `PATCH /api/users`
 
 ### Session
 
@@ -24,21 +23,23 @@
 
 ### Classes
 
-- `GET /api/classes`
+- `GET /api/class`
   - Classes index/search
-- `POST /api/classes`
-  - Create new Class
-- `GET /api/classes/:id`
-- `POST /api/classes/:id`
-- `PATCH /api/classes/:id`
-- `DELETE /api/classes/:id`
+- `POST /api/class`
+  - New Class Form
+- `PATCH /api/class/:classId`
+- `DELETE /api/class/:classId`
 
 ### Quizzes
 
-- `GET /api/classes/:classId/quizzes`
-- `POST /api/classes/:classId/quizzes`
-- `GET /api/classes/:classId/quizzes/:id`
-- `DELETE /api/classes/:classId/quizzes/:id`
-- `GET /api/classes/:classId/quizzes/:id/notes`
-  - index of all notes for a notebook
-  - accepts pagination params (if I get there)
+- `GET /api/class/:classId/quiz`
+  - Quiz Index
+- `POST /api/class/:classId/quiz`
+  - New Quiz Form
+- `GET /api/class/:classId/quiz/:quizId`
+  - Quiz Show Page
+- `POST /api/class/:classId/quiz/:quizId`
+  - New Questions?
+- `PATCH /api/class/:classId/quiz/:quizId`
+  - Edit Questions?
+- `DELETE /api/quiz/:quizId`

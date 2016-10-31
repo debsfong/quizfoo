@@ -1,9 +1,11 @@
 ```js
 {
-  currentUser: {
+  user: {
     id: 1,
-    teacher: true
+    fname: "Debra"
+    lname: "Fong"
     email: "teacher@school.k12.ca.us"
+    teacher: true
   },
   forms: {
     signUp: {errors: []},
@@ -12,7 +14,7 @@
   classes: {
     1: {
       title: "Redux 101",
-      author_id: 1,
+      teacher_id: 1,
     }
   }
   quizzes: {
@@ -35,14 +37,19 @@
   },
   choices: {
     1: {
-      text: "That's Markov",
+      value: "That's Markov",
+      question_id: 1
+    },
+    2: {
+      value: "That's Joe",
       question_id: 1
     }
   },
   responses: {
     1: {
-      choice_id: 1,
-      respondent_id: 2
+      question_id: 1,
+      student_id: 2,
+      value: "That's Markov"
     }
   },
 }
