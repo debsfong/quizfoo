@@ -30,7 +30,7 @@ Formalize is a web application inspired by Wufoo. The application will be build 
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (1 days)
+### Phase 1: Backend setup and Front End User Authentication (2 days)
 
 **Objective:** Functioning rails project with front-end Authentication
 
