@@ -8,7 +8,7 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  teacher         :boolean          default(FALSE), not null
+#  status          :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -16,9 +16,8 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
-  validates :fname, :lname, :email, :password_digest, :session_token, presence: true
+  validates :fname, :lname, :email, :password_digest, :session_token, :status, presence: true
   validates :email, uniqueness: true
-  validates :teacher, inclusion: { in: [ true, false ] }
   validates :password, length: { minimum: 8, allow_nil: true }
 
   after_initialize :ensure_session_token
