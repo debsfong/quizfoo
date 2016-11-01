@@ -11,7 +11,7 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 teacher         | boolean   | not null
 
-## classes (bonus)
+## course (bonus)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -23,7 +23,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
-user_id     | integer   | not null, foreign key (references users(bonus, classes_id references classes)), indexed
+user_id     | integer   | not null, foreign key (references users(bonus, course_id references course)), indexed
 
 ## questions
 column name | data type | details
@@ -31,7 +31,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 question    | string    | not null
 type        | string    | not null
-order       | integet   | not null
+order       | integer   | not null
 quiz_id     | integer   | not null, foreign key (references quizzes), indexed
 
 ## choices
