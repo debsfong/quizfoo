@@ -14,6 +14,6 @@ class Response < ActiveRecord::Base
   validates :value, :question_id, :student_id, presence: true
 
   belongs_to :question
-  belongs_to :student
+  belongs_to :student,
     class_name: "User"
 end
