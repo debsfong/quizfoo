@@ -14,13 +14,11 @@ const titleClick = () => console.log('title');
 const sessionLinks = () => (
   <AppBar
     onTitleTouchTap={titleClick}
-    title={
-      <span style={styles.title}>Quizfoo</span>}
-    iconElementLeft={<Link to="/"><IconButton><ActionHome /></IconButton></Link>}
+    title={<Link to="/"><span style={styles.title}>HELP</span></Link>}
+    iconElementLeft={<IconButton><ActionHome /></IconButton>}
     iconElementRight={
       <div>
         <Link to="/login"><RaisedButton label="Log In" /></Link>
-        &nbsp;&nbsp;
         <Link to="/signup"><RaisedButton label="Sign Up" /></Link>
       </div>
     }
@@ -34,9 +32,10 @@ const styles = {
 };
 
 const personalGreeting = (currentUser, logout) => (
-  <AppBar title="Quizfoo"
-
-      iconElementRight={<RaisedButton onClick={logout} label="Log Out" />}
+  <AppBar
+    title={<Link to="/"><span style={styles.title}>Quizfoo</span></Link>}
+    iconElementLeft={<IconButton to="/"><ActionHome/></IconButton>}
+    iconElementRight={<RaisedButton onClick={logout} label="Log Out" />}
   />
 );
 

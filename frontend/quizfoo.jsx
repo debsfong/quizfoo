@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root.jsx';
+import {fetchQuizzes} from './util/quiz_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
     const rootEl = document.getElementById('root');
@@ -16,4 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ReactDOM.render(<Root store={store} />, rootEl);
     window.store = store;
+    window.fetchQuizzes = fetchQuizzes;
 });

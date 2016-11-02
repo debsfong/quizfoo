@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
 
-  has_many :quizzes
+  has_many :quizzes, foreign_key: :teacher_id
   has_many :responses, foreign_key: :student_id
 
   def password=(password)

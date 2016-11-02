@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+  body {
+    font-family: 'Abel', sans-serif;
+  }
+
+ .login-form-container {
+   display: flex;
+   justify-content: center;
+   margin-top: 100px;
+ }
+
+ .login-form {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+ }
+
+ .login-form-box {
+   outline: 1px solid black;
+   padding: 20px;
+ }
+
+ .filter {
+   font-weight: bold;
+ }
+
+ .header-link {
+   text-decoration: none;
+   color: black;
+ }

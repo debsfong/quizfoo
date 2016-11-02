@@ -1,9 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -58,39 +54,40 @@ class SessionForm extends React.Component {
 
 	redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
-			this.props.router.push("/quizzes");
+			this.props.router.push("/");
 		}
 	}
 
 	update(field) {
 		return (e) => this.setState ({
-			[field]: e.target.value
+			[field]: e.currentTarget.value
 		});
 	}
-
 
 	signupForm() {
 		if (this.props.formType === "signup") {
 			return (
 				<div>
-					<SelectField
-						disabled={true}
-						floatingLabelText="I am a:"
-						value={this.state.status}
-						onChange={this.update("status")}>
-						<MenuItem value="teacher" primaryText="Teacher" />
-						<MenuItem value="student" primaryText="Student" />
-					</SelectField>
+					<label> I am a:
+						<select onChange={this.update("status")} className="login-input">
+							<option value="teacher">Teacher</option>
+							<option value="student">Student</option>
+						</select>
+					</label>
 					<br/>
-					<TextField hintText="First Name"
-						value={this.state.first_name}
-						onChange={this.update("first_name")}
-						className="login-input" />
+					<label> First Name:
+						<input type="text"
+							value={this.state.first_name}
+							onChange={this.update("first_name")}
+							className="login-input" />
+					</label>
 					<br/>
-					<TextField hintText="Last Name"
-						value={this.state.last_name}
-						onChange={this.update("last_name")}
-						className="login-input" />
+					<label> Last Name:
+						<input type="text"
+							value={this.state.last_name}
+							onChange={this.update("last_name")}
+							className="login-input" />
+					</label>
 				</div>
 			);
 		}
@@ -105,21 +102,24 @@ class SessionForm extends React.Component {
 					{this.renderErrors()}
 					<div className="login-form">
 						{this.signupForm()}
-						<TextField hintText="Email"
+						<label> Email:
+							<input type="text"
 								value={this.state.email}
 								onChange={this.update("email")}
 								className="login-input" />
-						<TextField hintText="Password"
-							type="password"
-							value={this.state.password}
-							onChange={this.update("password")}
-							className="login-input" />
+						</label>
 						<br/>
-						<RaisedButton type="submit" label="Submit" />
+						<label> Password:
+							<input type="password"
+								value={this.state.password}
+								onChange={this.update("password")}
+								className="login-input" />
+						</label>
+						<br/>
+						<input type="submit" value="Submit" />
 					</div>
-					<br></br>
-					{this.navLink()}
 				</form>
+				{this.navLink()}
 			</div>
 		);
 	}
