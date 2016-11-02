@@ -3,8 +3,8 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  fname           :string           not null
-#  lname           :string           not null
+#  first_name           :string           not null
+#  last_name           :string           not null
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
@@ -16,7 +16,7 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
-  validates :fname, :lname, :email, :password_digest, :session_token, :status, presence: true
+  validates :first_name, :last_name, :email, :password_digest, :session_token, :status, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
 
