@@ -1,12 +1,15 @@
 import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 const App = ({ children }) => (
-  <div>
-    <h1>Quizfoo</h1>
-    <GreetingContainer />
-    {children}
-  </div>
+  <MuiThemeProvider>
+    <div>
+      <GreetingContainer />
+      {children}
+    </div>
+  </MuiThemeProvider>
 );
 
 export default App;

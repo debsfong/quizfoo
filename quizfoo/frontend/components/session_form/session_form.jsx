@@ -24,13 +24,13 @@ class SessionForm extends React.Component {
     if (this.props.formType === "login") {
       return (
         <div>
-          Log In or <Link to="/signup">Sign Up</Link>
+          Don't have an account? <Link to="/signup">Sign Up</Link>
         </div>
       );
     } else {
       return (
         <div>
-          <Link to="/login">Log In</Link> or Sign Up
+          Already have an account? <Link to="/login">Log In</Link>
         </div>
       );
     }
@@ -99,7 +99,6 @@ class SessionForm extends React.Component {
 				<form onSubmit={this.handleSubmit} className="login-form-box">
 					Welcome to Quizfoo!
 					<br/>
-					{this.navLink()}
 					{this.renderErrors()}
 					<div className="login-form">
 						{this.signupForm()}
@@ -120,6 +119,7 @@ class SessionForm extends React.Component {
 						<input type="submit" value="Submit" />
 					</div>
 				</form>
+				{this.navLink()}
 			</div>
 		);
 	}
