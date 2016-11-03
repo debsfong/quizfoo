@@ -1,7 +1,5 @@
 class Api::QuizzesController < ApplicationController
-  def index
-    @quizzes = Quiz.all.where(:)
-  end
+
 
   def create
     @quiz = Quiz.new(quiz_params)
