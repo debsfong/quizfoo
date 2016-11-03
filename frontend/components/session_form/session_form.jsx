@@ -84,13 +84,11 @@ class SessionForm extends React.Component {
 					<br/>
 					<TextField hintText="First Name"
 						value={this.state.first_name}
-						onChange={this.update("first_name")}
-						className="login-input" />
+						onChange={this.update("first_name")} />
 					<br/>
 					<TextField hintText="Last Name"
 						value={this.state.last_name}
-						onChange={this.update("last_name")}
-						className="login-input" />
+						onChange={this.update("last_name")} />
 				</div>
 			);
 		}
@@ -107,13 +105,11 @@ class SessionForm extends React.Component {
 						{this.signupForm()}
 						<TextField hintText="Email"
 								value={this.state.email}
-								onChange={this.update("email")}
-								className="login-input" />
+								onChange={this.update("email")} />
 						<TextField hintText="Password"
 							type="password"
 							value={this.state.password}
-							onChange={this.update("password")}
-							className="login-input" />
+							onChange={this.update("password")} />
 						<br/>
 						<RaisedButton type="submit" label="Submit" />
 					</div>

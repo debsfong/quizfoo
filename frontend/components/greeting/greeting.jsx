@@ -5,10 +5,6 @@ import IconButton from 'material-ui/IconButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import RaisedButton from 'material-ui/RaisedButton';
 
-// Needed for onTouchTap
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
 const titleClick = () => console.log('title');
 
 const sessionLinks = () => (

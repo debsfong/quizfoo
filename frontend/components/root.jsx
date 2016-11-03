@@ -4,13 +4,16 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
 import SessionFormContainer from './session_form/session_form_container';
 import QuizCardsContainer from './quizzes/quiz_cards_container';
-
+import injectTapEventPlugin from 'react-tap-event-plugin';
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/quizzes');
     }
   };
 

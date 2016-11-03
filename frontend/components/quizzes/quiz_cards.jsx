@@ -2,33 +2,65 @@ import React from 'react';
 import { Link } from 'react-router';
 import QuizCardItem from './quiz_card_item';
 import {GridList, GridTile} from 'material-ui/GridList';
-
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  gridList: {
-    width: 1000,
-    height: 450,
-    overflowY: 'auto',
-  },
-};
+import Dialog from 'material-ui/Dialog';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class QuizCards extends React.Component {
+
   constructor(props) {
     super(props);
+    this.state = {
+      open: false,
+      quiz: {
+        title: "",
+        teacher_id: props.teacher_id
+      }
+    };
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
-  createQuizButton() {
-    return (
-      <GridTile
-        title="Create a Quiz!"></GridTile>
-    );
+  handleOpen() {
+    this.setState({open: true});
+  }
+
+  handleClose() {
+    this.setState({open: false});
+    const quiz = this.state.quiz;
+    this.props.createQuiz({quiz});
+    this.props.router.push(`/quiz/${quiz.id}`);
+  }
+
+  update() {
+    return (e) => this.setState ({
+      quiz: {title: e.target.value}
+    });
   }
 
   render() {
+    const styles = {
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+      },
+      gridList: {
+        width: 1000,
+        height: 450,
+        overflowY: 'auto',
+      },
+    };
+
+    const actions = [
+      <RaisedButton
+        label="Ok"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleClose}
+      />,
+    ];
+
     return (
       <div style={styles.root}>
         <GridList
@@ -36,11 +68,22 @@ class QuizCards extends React.Component {
           padding={20}
           cellHeight={250}
           style={styles.gridList}>
-          {this.createQuizButton()}
+          <GridTile title="Create a Quiz" onTouchTap={this.handleOpen}/>
           {this.props.quizzes.map((quiz) => (
             <QuizCardItem key={quiz.id} quiz={quiz} />
           ))}
         </GridList>
+        <Dialog
+          title="What would you like to title your Quiz?"
+          actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}>
+          <TextField
+            hintText="Title"
+            value={this.state.title}
+            onChange={this.update("title")}/>
+        </Dialog>
       </div>
     );
   }

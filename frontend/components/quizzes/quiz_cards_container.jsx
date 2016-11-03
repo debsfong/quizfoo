@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { createQuiz } from '../../actions/quiz_actions';
 import QuizCards from './quiz_cards';
 
 const mapStateToProps = ({ session }) => ({
-  quizzes: session.currentUser.quizzes
+  quizzes: session.currentUser.quizzes,
+  teacher_id: session.currentUser.id
 });
 
 const mapDispatchToProps = dispatch => ({
