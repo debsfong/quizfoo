@@ -1,6 +1,5 @@
 class Api::QuizzesController < ApplicationController
 
-
   def create
     @quiz = Quiz.new(quiz_params)
     @quiz.teacher_id = current_user.id

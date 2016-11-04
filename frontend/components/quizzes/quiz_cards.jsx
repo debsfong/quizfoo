@@ -28,13 +28,14 @@ class QuizCards extends React.Component {
   handleClose() {
     this.setState({open: false});
     const quiz = this.state.quiz;
-    this.props.createQuiz({quiz});
-    this.props.router.push(`/quiz/${quiz.id}`);
+    this.props.createQuiz(quiz);
+    // this.props.router.push(`/quiz/${newQuiz.id}`);
   }
 
   update() {
     return (e) => this.setState ({
-      quiz: {title: e.target.value}
+      quiz: {title: e.target.value,
+            teacher_id: this.props.teacher_id}
     });
   }
 
@@ -66,7 +67,6 @@ class QuizCards extends React.Component {
         <GridList
           cols={4}
           padding={20}
-          cellHeight={250}
           style={styles.gridList}>
           <GridTile title="Create a Quiz" onTouchTap={this.handleOpen}/>
           {this.props.quizzes.map((quiz) => (

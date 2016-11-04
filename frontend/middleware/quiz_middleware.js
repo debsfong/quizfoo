@@ -1,15 +1,30 @@
-import { receiveQuiz, receiveErrors, CREATE_QUIZ } from '../actions/quiz_actions';
-import { createQuiz } from '../util/quiz_api_util';
+import {
+  receiveQuizzes,
+  receiveQuiz,
+  receiveErrors,
+  REQUEST_QUIZZES,
+  REQUEST_QUIZ,
+  CREATE_QUIZ } from '../actions/quiz_actions';
+import {
+  fetchQuizzes,
+  fetchQuiz,
+  createQuiz } from '../util/quiz_api_util';
 
 export default ({dispatch}) => next => action => {
-  const successCallback = quiz => dispatch(receiveQuiz(quiz));
-  const errorCallback = xhr => dispatch(receiveErrors(xhr.responseJSON));
+  const QuizzesSuccess = quizzes => dispatch(receiveQuizzes(quizzes));
+  const QuizSuccess = quiz => dispatch(receiveQuiz(quiz));
 
   switch (action.type) {
+    case REQUEST_QUIZZES:
+      fetchQuizzes(QuizzesSuccess);
+      return next(action);
+    case REQUEST_QUIZ:
+      fetchQuiz(QuizSuccess);
+      return next(action);
     case CREATE_QUIZ:
-        createQuiz(action.quiz, successCallback, errorCallback);
-        return next(action);
+      createQuiz(action.quiz, QuizSuccess);
+      return next(action);
     default:
-      next(action);
+      return next(action);
   }
 };

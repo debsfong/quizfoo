@@ -8,6 +8,7 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  createQuiz: (quiz) => dispatch(createQuiz(quiz))
 });
 
 export default connect(

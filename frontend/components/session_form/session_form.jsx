@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
 			password: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.guestTeacher = this.guestTeacher.bind(this);
 	}
 
   handleSubmit(e) {
@@ -24,33 +25,17 @@ class SessionForm extends React.Component {
     this.props.processForm({user});
   }
 
-  navLink() {
-    if (this.props.formType === "login") {
-      return (
-        <div>
-          Don't have an account? <Link to="/signup">Sign Up</Link>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          Already have an account? <Link to="/login">Log In</Link>
-        </div>
-      );
-    }
-  }
-
-  renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+	guestTeacher(e) {
+		e.preventDefault();
+		const user = {
+			status: "teacher",
+			first_name: "Debra",
+			last_name: "Fong",
+			email: "debra@email.com",
+			password: "password"
+			};
+		this.props.login({user});
+	}
 
 	componentDidUpdate() {
 		this.redirectIfLoggedIn();
@@ -68,6 +53,35 @@ class SessionForm extends React.Component {
 		});
 	}
 
+	navLink() {
+    if (this.props.formType === "login") {
+      return (
+        <div>
+					<br/>
+          Don't have an account? <Link to="/signup">Sign Up</Link>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+					<br/>
+          Already have an account? <Link to="/login">Log In</Link>
+        </div>
+      );
+    }
+  }
+
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
 	signupForm() {
 		if (this.props.formType === "signup") {
@@ -96,26 +110,29 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to Quizfoo!
-					<br/>
-					{this.renderErrors()}
-					<div className="login-form">
-						{this.signupForm()}
-						<TextField hintText="Email"
+			<div className="welcome-background">
+				<div className="login-form-container">
+					<form onSubmit={this.handleSubmit} className="login-form-box">
+						Welcome to Quizfoo!
+						<br/>
+						{this.renderErrors()}
+						<div className="login-form">
+							{this.signupForm()}
+							<TextField hintText="Email"
 								value={this.state.email}
 								onChange={this.update("email")} />
-						<TextField hintText="Password"
-							type="password"
-							value={this.state.password}
-							onChange={this.update("password")} />
-						<br/>
-						<RaisedButton type="submit" label="Submit" />
-					</div>
-					<br></br>
-					{this.navLink()}
-				</form>
+							<TextField hintText="Password"
+								type="password"
+								value={this.state.password}
+								onChange={this.update("password")} />
+							<br/>
+							<RaisedButton type="submit" label="Submit" />
+							<br />
+							<RaisedButton onClick={this.guestTeacher} label="Guest Teacher"/>
+						</div>
+						{this.navLink()}
+					</form>
+				</div>
 			</div>
 		);
 	}

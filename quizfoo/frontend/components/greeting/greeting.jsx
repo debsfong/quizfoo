@@ -31,7 +31,7 @@ const styles = {
   },
 };
 
-const personalGreeting = (currentUser, logout) => (
+const personalHeader = (currentUser, logout) => (
   <AppBar
     title={<Link to="/"><span style={styles.title}>Quizfoo</span></Link>}
     iconElementLeft={<IconButton to="/"><ActionHome/></IconButton>}
@@ -39,8 +39,8 @@ const personalGreeting = (currentUser, logout) => (
   />
 );
 
-const Greeting = ({ currentUser, logout }) => (
-  currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
+const Header = ({ currentUser, logout }) => (
+  currentUser ? personalHeader(currentUser, logout) : sessionLinks()
 );
 
-export default Greeting;
+export default Header;

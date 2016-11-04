@@ -1,1 +1,1 @@
-json.extract! quiz, :title, :teacher_id
+json.extract! quiz, :title, :teacher_id, :questions

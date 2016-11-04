@@ -54,7 +54,7 @@
 
 |Path   | Component   |
 |-------|-------------|
-| "/" | "SplashPage" |
+| "/" | "WelcomePage" |
 | "/signup" | "AuthFormContainer" |
 | "/signin" | "AuthFormContainer" |
 | "/home" | "HomeContainer" |
