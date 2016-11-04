@@ -21,6 +21,10 @@ class QuizCards extends React.Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
+  componentWillMount() {
+    this.props.requestQuizzes();
+  }
+
   handleOpen() {
     this.setState({open: true});
   }
@@ -69,8 +73,8 @@ class QuizCards extends React.Component {
           padding={20}
           style={styles.gridList}>
           <GridTile title="Create a Quiz" onTouchTap={this.handleOpen}/>
-          {this.props.quizzes.map((quiz) => (
-            <QuizCardItem key={quiz.id} quiz={quiz} />
+          {this.props.quizzes.map((quiz, idx) => (
+            <QuizCardItem key={idx} quiz={quiz} />
           ))}
         </GridList>
         <Dialog

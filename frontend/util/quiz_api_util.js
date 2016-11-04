@@ -10,7 +10,7 @@ export const fetchQuizzes = success => {
 export const fetchQuiz = (id, success) => {
   $.ajax({
     method: 'GET' ,
-    url: `api/users/${id}`,
+    url: `api/quizzes/${id}`,
     success
   });
 };

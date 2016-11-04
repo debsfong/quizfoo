@@ -11,6 +11,10 @@ class Api::QuizzesController < ApplicationController
 		end
   end
 
+  def index
+    @quizzes = Quiz.where(teacher_id: current_user.id)
+  end
+
   def show
     @quiz = Quiz.find(params[:id])
   end
