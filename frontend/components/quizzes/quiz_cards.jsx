@@ -5,6 +5,8 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import {Card, CardActions, CardHeader, CardTitle} from 'material-ui/Card';
 
 class QuizCards extends React.Component {
 
@@ -19,10 +21,17 @@ class QuizCards extends React.Component {
     };
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
     this.props.requestQuizzes();
+  }
+
+  handleSubmit() {
+    const quiz = this.state.quiz;
+    this.props.createQuiz(quiz);
+    // this.props.router.push(`/quiz/${quiz.id}`);
   }
 
   handleOpen() {
@@ -31,9 +40,6 @@ class QuizCards extends React.Component {
 
   handleClose() {
     this.setState({open: false});
-    const quiz = this.state.quiz;
-    this.props.createQuiz(quiz);
-    // this.props.router.push(`/quiz/${newQuiz.id}`);
   }
 
   update() {
@@ -59,22 +65,31 @@ class QuizCards extends React.Component {
 
     const actions = [
       <RaisedButton
-        label="Ok"
+        label="Cancel"
         primary={true}
         keyboardFocused={true}
         onClick={this.handleClose}
       />,
+      <RaisedButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleSubmit}
+      />,
     ];
 
     return (
+
       <div style={styles.root}>
         <GridList
           cols={4}
           padding={20}
           style={styles.gridList}>
-          <GridTile title="Create a Quiz" onTouchTap={this.handleOpen}/>
+          <Card onTouchTap={this.handleOpen}>
+            <CardTitle title="Create a Quiz" />
+          </Card>
           {this.props.quizzes.map((quiz, idx) => (
-            <QuizCardItem key={idx} quiz={quiz} />
+            <QuizCardItem key={idx} quiz={quiz}/>
           ))}
         </GridList>
         <Dialog
@@ -89,6 +104,7 @@ class QuizCards extends React.Component {
             onChange={this.update("title")}/>
         </Dialog>
       </div>
+
     );
   }
 }

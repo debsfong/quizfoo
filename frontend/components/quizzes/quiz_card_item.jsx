@@ -1,15 +1,23 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import {GridList, GridTile} from 'material-ui/GridList';
+import RaisedButton from 'material-ui/RaisedButton';
+import {Card, CardActions, CardHeader, CardTitle} from 'material-ui/Card';
 
 const QuizCardItem = ({quiz, router}) => {
   const handleClick = url => e => router.push(url);
+  const handleDelete = () => {};
 
   return (
-    <GridTile
-      title={quiz.title}
-      onClick={handleClick(`/quiz/${quiz.id}`)}>
-    </GridTile>
+    <Card>
+      <CardTitle
+        title={quiz.title}
+        subtitle={`by`}
+      />
+      <CardActions>
+        <RaisedButton label="Edit" onClick={handleClick(`/quiz/${quiz.id}/edit`)}/>
+        <RaisedButton label="Delete" onClick={handleDelete()}/>
+      </CardActions>
+    </Card>
   );
 };
 
