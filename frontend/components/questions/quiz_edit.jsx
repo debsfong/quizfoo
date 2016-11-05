@@ -6,6 +6,10 @@ class QuizEdit extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props.requestQuestions(this.props.quizId);
+  }
+
   render () {
     return (
       <div>

@@ -24,3 +24,13 @@ export const createQuiz = (quiz, success, error) => {
     error
   });
 };
+
+export const removeQuiz = (id, success, error) => {
+  $.ajax({
+    method: 'DELETE' ,
+    url: `api/quizzes`,
+    data: {id},
+    success,
+    error
+  });
+};

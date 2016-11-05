@@ -63,6 +63,8 @@ class QuizCards extends React.Component {
       },
     };
 
+    const disabled = (this.state.quiz.title == "");
+
     const actions = [
       <RaisedButton
         label="Cancel"
@@ -72,6 +74,7 @@ class QuizCards extends React.Component {
       />,
       <RaisedButton
         label="Submit"
+        disabled={disabled}
         primary={true}
         keyboardFocused={true}
         onClick={this.handleSubmit}
