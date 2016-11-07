@@ -14,10 +14,6 @@ const QuizReducer = (oldState = {}, action) => {
       return merge({}, oldState, {
         errors
       });
-    case REMOVE_QUIZ:
-      let newState = merge({}, oldState);
-      delete newState[action.quiz.id];
-      return newState;
     default:
       return oldState;
   }

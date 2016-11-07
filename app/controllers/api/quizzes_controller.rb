@@ -21,6 +21,7 @@ class Api::QuizzesController < ApplicationController
   def destroy
     @quiz = Quiz.find(params[:id])
     if @quiz
+      @quiz.destroy
       render "api/quizzes/show"
     else
       render(

@@ -24,7 +24,7 @@ class Welcome extends React.Component {
     return (
       <div className="welcome-background">
         <div className="welcome-box">
-          Making quizzes can be tedius. Quizfoo makes it easy!
+          Making quizzes can be tedious. Quizfoo makes it easy!
           <br/>
           <br/>
           {this.welcomeButton()}
