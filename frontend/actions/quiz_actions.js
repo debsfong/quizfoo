@@ -26,7 +26,7 @@ export const receiveQuiz = quiz => ({
   quiz
 });
 
-export const createQuiz = quiz => ({
+export const createQuiz = (quiz) => ({
   type: CREATE_QUIZ,
   quiz
 });

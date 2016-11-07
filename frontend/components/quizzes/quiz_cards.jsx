@@ -15,9 +15,10 @@ class QuizCards extends React.Component {
       open: false,
       quiz: {
         title: "",
-        teacher_id: props.teacher_id
+        teacher_id: this.props.teacher_id
       }
     };
+
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,11 +28,16 @@ class QuizCards extends React.Component {
     this.props.requestQuizzes();
   }
 
+  componentWillReceiveProps(prevProps, prevState) {
+    if (prevProps.quiz !== this.props.quiz) {
+      this.props.router.push(`/quiz/${this.props.quiz.id}/edit`);
+    }
+  }
+
   handleSubmit() {
     this.setState({open: false});
     const quiz = this.state.quiz;
     this.props.createQuiz(quiz);
-    this.props.router.push(`/quiz/${quiz.id}/edit`);
   }
 
   handleOpen() {
@@ -40,6 +46,7 @@ class QuizCards extends React.Component {
 
   handleClose() {
     this.setState({open: false});
+    this.state.quiz.title = "";
   }
 
   update() {
@@ -66,19 +73,16 @@ class QuizCards extends React.Component {
     const disabled = (this.state.quiz.title == "");
 
     const actions = [
-      <RaisedButton
+      <FlatButton
         label="Cancel"
-        primary={true}
-        keyboardFocused={true}
         onClick={this.handleClose}
       />,
       <RaisedButton
         label="Submit"
         disabled={disabled}
         primary={true}
-        keyboardFocused={true}
         onClick={this.handleSubmit}
-      />,
+      />
     ];
 
     return (
@@ -103,7 +107,6 @@ class QuizCards extends React.Component {
           onRequestClose={this.handleClose}>
           <TextField
             hintText="Title"
-            value={this.state.title}
             onChange={this.update("title")}/>
         </Dialog>
       </div>

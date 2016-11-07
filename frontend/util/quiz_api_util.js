@@ -15,13 +15,12 @@ export const fetchQuiz = (id, success) => {
   });
 };
 
-export const createQuiz = (quiz, success, error) => {
+export const createQuiz = (quiz, success) => {
   $.ajax({
     method: 'POST' ,
     url: `api/quizzes`,
     data: {quiz},
-    success,
-    error
+    success
   });
 };
 

@@ -2,7 +2,6 @@ import { RECEIVE_QUIZZES, REMOVE_QUIZ } from '../actions/quiz_actions';
 import merge from 'lodash/merge';
 
 const QuizzesReducer = (oldState=[], action) => {
-  debugger;
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_QUIZZES:

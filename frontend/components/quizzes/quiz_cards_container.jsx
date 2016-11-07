@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { createQuiz, requestQuizzes, deleteQuiz } from '../../actions/quiz_actions';
 import QuizCards from './quiz_cards';
 
-const mapStateToProps = ({ session, quizzes }) => ({
+const mapStateToProps = ({ quiz, session, quizzes }) => ({
+  quiz,
   quizzes,
   teacher_id: session.currentUser.id
 });

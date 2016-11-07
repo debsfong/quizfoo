@@ -8,7 +8,7 @@ const QuizReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_QUIZ:
-      return merge({}, oldState, action.quiz);
+      return action.quiz;
     case RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, oldState, {
