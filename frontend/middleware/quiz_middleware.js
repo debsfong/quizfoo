@@ -23,7 +23,7 @@ export default ({dispatch}) => next => action => {
       fetchQuizzes(QuizzesSuccess);
       return next(action);
     case REQUEST_QUIZ:
-      fetchQuiz(QuizSuccess);
+      fetchQuiz(action.id, QuizSuccess);
       return next(action);
     case CREATE_QUIZ:
       createQuiz(action.quiz, QuizSuccess);

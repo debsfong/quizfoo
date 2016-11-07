@@ -3,9 +3,8 @@ import { withRouter } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardActions, CardHeader, CardTitle} from 'material-ui/Card';
 
-const QuizCardItem = ({quiz, router}) => {
+const QuizCardItem = ({quiz, deleteQuiz, router}) => {
   const handleClick = url => e => router.push(url);
-  const handleDelete = (id) => e => {};
 
   return (
     <Card>
@@ -15,7 +14,7 @@ const QuizCardItem = ({quiz, router}) => {
       />
       <CardActions>
         <RaisedButton label="Edit" onClick={handleClick(`/quiz/${quiz.id}/edit`)}/>
-        <RaisedButton label="Delete" onClick={handleDelete(quiz.id)}/>
+        <RaisedButton label="Delete" onClick={() => deleteQuiz(quiz.id)}/>
       </CardActions>
     </Card>
   );

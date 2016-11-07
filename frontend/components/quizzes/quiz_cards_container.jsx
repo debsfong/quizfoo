@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createQuiz, requestQuizzes } from '../../actions/quiz_actions';
+import { createQuiz, requestQuizzes, deleteQuiz } from '../../actions/quiz_actions';
 import QuizCards from './quiz_cards';
 
 const mapStateToProps = ({ session, quizzes }) => ({
@@ -8,8 +8,9 @@ const mapStateToProps = ({ session, quizzes }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  requestQuizzes: () => dispatch(requestQuizzes()),
   createQuiz: (quiz) => dispatch(createQuiz(quiz)),
-  requestQuizzes: () => dispatch(requestQuizzes())
+  deleteQuiz: (id) => dispatch(deleteQuiz(id))
 });
 
 export default connect(

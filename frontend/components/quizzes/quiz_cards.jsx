@@ -9,7 +9,6 @@ import FlatButton from 'material-ui/FlatButton';
 import {Card, CardActions, CardHeader, CardTitle} from 'material-ui/Card';
 
 class QuizCards extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -24,14 +23,15 @@ class QuizCards extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.requestQuizzes();
   }
 
   handleSubmit() {
+    this.setState({open: false});
     const quiz = this.state.quiz;
     this.props.createQuiz(quiz);
-    // this.props.router.push(`/quiz/${quiz.id}`);
+    this.props.router.push(`/quiz/${quiz.id}/edit`);
   }
 
   handleOpen() {
@@ -92,7 +92,7 @@ class QuizCards extends React.Component {
             <CardTitle title="Create a Quiz" />
           </Card>
           {this.props.quizzes.map((quiz, idx) => (
-            <QuizCardItem key={idx} quiz={quiz}/>
+            <QuizCardItem key={idx} deleteQuiz={this.props.deleteQuiz} quiz={quiz}/>
           ))}
         </GridList>
         <Dialog

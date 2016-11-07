@@ -25,12 +25,10 @@ export const createQuiz = (quiz, success, error) => {
   });
 };
 
-export const removeQuiz = (id, success, error) => {
+export const deleteQuiz = (id, success) => {
   $.ajax({
     method: 'DELETE' ,
-    url: `api/quizzes`,
-    data: {id},
-    success,
-    error
+    url: `api/quizzes/${id}`,
+    success
   });
 };

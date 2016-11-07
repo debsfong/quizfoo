@@ -1,8 +1,6 @@
 class Api::QuestionsController < ApplicationController
 
   def index
-    puts "PARAMS BELOW!"
-    puts params
     @questions = Question.where(quiz_id: params[:quizId])
   end
 
