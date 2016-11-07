@@ -28,7 +28,7 @@ class QuizCards extends React.Component {
     this.props.requestQuizzes();
   }
 
-  componentWillReceiveProps(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.quiz !== this.props.quiz) {
       this.props.router.push(`/quiz/${this.props.quiz.id}/edit`);
     }
