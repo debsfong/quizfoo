@@ -7,7 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const sessionLinks = () => (
   <AppBar
-    title="QuizFoo"
+    title="Quizfoo"
     iconElementLeft={<Link to="/"><IconButton><ActionHome /></IconButton></Link>}
     iconElementRight={
       <div>

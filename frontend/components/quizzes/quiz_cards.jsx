@@ -92,7 +92,7 @@ class QuizCards extends React.Component {
           padding={20}
           style={styles.gridList}>
           <Card onTouchTap={this.handleOpen}>
-            <CardTitle title="Create a Quiz" />
+            <CardTitle title="+ Create a Quiz" />
           </Card>
           {this.props.quizzes.map((quiz, idx) => (
             <QuizCardItem key={idx} deleteQuiz={this.props.deleteQuiz} quiz={quiz}/>

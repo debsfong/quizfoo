@@ -35,7 +35,9 @@ class QuestionCards extends React.Component {
 
     return (
       <div>
-        {this.props.quiz.title}
+        <Link to="/quizzes">Back to Quizzes</Link>
+        <br/>
+        <h1>{this.props.quiz.title}</h1>
         {this.props.questions.map((question, idx) => (
           <QuestionCardItem
             key={idx}
@@ -47,7 +49,7 @@ class QuestionCards extends React.Component {
           <CardTitle title="+ Add a Question" />
         </Card>
         <Dialog
-          title="Create a New Question"
+          title="Create/Edit a Question"
           model={false}
           open={this.state.open}
           onRequestClose={this.handleClose}>

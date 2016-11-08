@@ -13,7 +13,7 @@ const QuizCardItem = ({quiz, deleteQuiz, router}) => {
         subtitle={"By " + quiz.user.first_name + " " + quiz.user.last_name}
       />
       <CardActions>
-        <RaisedButton label="Edit" onClick={handleClick(`/quiz/${quiz.id}/edit`)}/>
+        <RaisedButton label="Edit" primary={true} onClick={handleClick(`/quiz/${quiz.id}/edit`)}/>
         <RaisedButton label="Delete" onClick={() => deleteQuiz(quiz.id)}/>
       </CardActions>
     </Card>
