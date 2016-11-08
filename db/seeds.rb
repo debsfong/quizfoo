@@ -15,10 +15,34 @@ User.create!(
   status: "teacher",
   password: "password")
 User.create!(
-  first_name: "Guest",
+  first_name: "Guest Teacher",
   last_name: "Teacher",
   email: "teacher@school.k12.ca.us",
   status: "teacher",
+  password: "password")
+User.create!(
+  first_name: "Guest Student",
+  last_name: "Student",
+  email: "student@email.com",
+  status: "student",
+  password: "password")
+User.create!(
+  first_name: "Guest Student 1",
+  last_name: "Student",
+  email: "student1@email.com",
+  status: "student",
+  password: "password")
+User.create!(
+  first_name: "Guest Student 2",
+  last_name: "Student",
+  email: "student2@email.com",
+  status: "student",
+  password: "password")
+User.create!(
+  first_name: "Guest Student 3",
+  last_name: "Student",
+  email: "student3@email.com",
+  status: "student",
   password: "password")
 
 Quiz.create!(title: "Quiz", teacher_id: 1)
@@ -47,3 +71,20 @@ Choice.create!(value: "Nowhere", question_id: 3)
 Choice.create!(value: "3", question_id: 4)
 Choice.create!(value: "2", question_id: 4)
 Choice.create!(value: "1", question_id: 4)
+
+Response.create!(value: "Me", question_id: 1, student_id: 3)
+Response.create!(value: "Me", question_id: 1, student_id: 4)
+Response.create!(value: "You", question_id: 1, student_id: 5)
+Response.create!(value: "Us", question_id: 1, student_id: 6)
+Response.create!(value: "This", question_id: 2, student_id: 3)
+Response.create!(value: "That", question_id: 2, student_id: 5)
+Response.create!(value: "That", question_id: 2, student_id: 6)
+Response.create!(value: "Huh?", question_id: 2, student_id: 4)
+Response.create!(value: "Here", question_id: 3, student_id: 3)
+Response.create!(value: "Nowhere", question_id: 3, student_id: 4)
+Response.create!(value: "Nowhere", question_id: 3, student_id: 5)
+Response.create!(value: "Nowhere", question_id: 3, student_id: 6)
+Response.create!(value: "3", question_id: 4, student_id: 6)
+Response.create!(value: "2", question_id: 4, student_id: 4)
+Response.create!(value: "1", question_id: 4, student_id: 5)
+Response.create!(value: "1", question_id: 4, student_id: 3)

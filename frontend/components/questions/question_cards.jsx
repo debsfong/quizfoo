@@ -35,8 +35,6 @@ class QuestionCards extends React.Component {
 
     return (
       <div>
-        <Link to="/quizzes">Back to Quizzes</Link>
-        <br/>
         <h1>{this.props.quiz.title}</h1>
         {this.props.questions.map((question, idx) => (
           <QuestionCardItem

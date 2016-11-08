@@ -21,6 +21,11 @@ body {
   background-color: #9c98a0;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
+
 .welcome-background {
   position: absolute;
   top: 0;

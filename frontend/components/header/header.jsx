@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
+import SidebarMenu from '../sidebar/sidebar_menu';
 import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import ActionHome from 'material-ui/svg-icons/action/home';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const sessionLinks = () => (
   <AppBar
-    title="Quizfoo"
-    iconElementLeft={<Link to="/"><IconButton><ActionHome /></IconButton></Link>}
+    title={<Link className="link" to="/">Quizfoo</Link>}
+    iconElementLeft={<SidebarMenu />}
     iconElementRight={
       <div>
         <Link to="/login"><RaisedButton label="Log In" /></Link>
@@ -21,8 +20,8 @@ const sessionLinks = () => (
 
 const personalHeader = (currentUser, logout) => (
   <AppBar
-    title="Quizfoo"
-    iconElementLeft={<Link to="/"><IconButton><ActionHome /></IconButton></Link>}
+    title={<Link className="link" to="/">Quizfoo</Link>}
+    iconElementLeft={<SidebarMenu />}
     iconElementRight={
       <Link to="/"><RaisedButton onClick={logout} label="Log Out" /></Link>
     }

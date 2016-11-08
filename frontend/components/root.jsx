@@ -22,6 +22,13 @@ const Root = ({ store }) => {
     }
   };
 
+  const _redirectIfLoggedOut = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (!currentUser) {
+      replace('/');
+    }
+  };
+
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
@@ -29,10 +36,10 @@ const Root = ({ store }) => {
           <IndexRoute component={WelcomeContainer} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/quizzes" component={QuizCardsContainer} />
-          <Route path="/quiz" component={Questions}>
-            <Route path="/quiz/:quizId/edit" component={QuestionCardsContainer} />
-            <Route path="/quiz/:quizId/analyze" component={ResultsContainer} />
+          <Route path="/quizzes" component={QuizCardsContainer} onEnter={_redirectIfLoggedOut}/>
+          <Route path="/quiz" component={Questions} onEnter={_redirectIfLoggedOut}>
+            <Route path="/quiz/:quizId/edit" component={QuestionCardsContainer} onEnter={_redirectIfLoggedOut}/>
+            <Route path="/quiz/:quizId/analyze" component={ResultsContainer} onEnter={_redirectIfLoggedOut}/>
           </Route>
         </Route>
       </Router>
