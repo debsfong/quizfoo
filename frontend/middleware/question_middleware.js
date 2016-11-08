@@ -31,7 +31,7 @@ export default ({dispatch}) => next => action => {
       createQuestion(action.question, QuestionSuccess);
       return next(action);
     case DELETE_QUESTION:
-      deleteQuestion(action.id, RemoveQuestionSuccess);
+      deleteQuestion(action.questionId, RemoveQuestionSuccess);
       return next(action);
     case UPDATE_QUESTION:
       updateQuestion(action.question, QuestionSuccess);

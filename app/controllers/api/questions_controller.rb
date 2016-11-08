@@ -1,7 +1,8 @@
 class Api::QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
-    @question.quiz_id = params[:quizId]
+    quiz = Quiz.find(question_params[:quiz_id]);
+    @question.order = quiz.questions.length + 1
 
     if @question.save
       render "api/questions/show"
