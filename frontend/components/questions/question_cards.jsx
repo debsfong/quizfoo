@@ -37,7 +37,11 @@ class QuestionCards extends React.Component {
       <div>
         {this.props.quiz.title}
         {this.props.questions.map((question, idx) => (
-          <QuestionCardItem key={idx} question={question} deleteQuestion={this.props.deleteQuestion}/>
+          <QuestionCardItem
+            key={idx}
+            question={question}
+            deleteQuestion={this.props.deleteQuestion}
+            handleOpen={this.props.handleOpen}/>
         ))}
         <Card onTouchTap={this.handleOpen}>
           <CardTitle title="+ Add a Question" />

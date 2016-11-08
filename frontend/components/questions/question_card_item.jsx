@@ -1,5 +1,4 @@
 import React from 'react';
-import QuestionEditDialog from './question_edit_dialog';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -22,7 +21,7 @@ class QuestionCardItem extends React.Component {
           title={this.props.question.order + ". " + this.props.question.text}
         />
         <CardActions>
-          <RaisedButton label="Edit"/>
+          <RaisedButton label="Edit" onClick={this.props.handleOpen}/>
           <RaisedButton label="Delete" onClick={() => this.props.deleteQuestion(this.props.question.id)}/>
         </CardActions>
       </Card>

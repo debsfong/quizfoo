@@ -16,9 +16,9 @@ export const fetchQuestion = (id, success) => {
   });
 };
 
-export const createQuestion = (question, success, error) => {
+export const createQuestion = (question, success) => {
   $.ajax({
-    method: 'POST' ,
+    method: 'POST',
     url: `api/questions`,
     data: {question},
     success

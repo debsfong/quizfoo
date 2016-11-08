@@ -10,7 +10,7 @@ class QuestionModal extends React.Component {
     super(props);
     this.state = {
       text: "",
-      type: "multipleChoice",
+      form_type: "shortAnswer",
       quiz_id: this.props.quizId
     };
 
@@ -20,7 +20,7 @@ class QuestionModal extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const question = this.state;
-    this.props.createQuestion({question});
+    this.props.createQuestion(question);
   }
 
   update(field) {
@@ -36,8 +36,8 @@ class QuestionModal extends React.Component {
           onChange={this.update("text")} />
         <br/>
         <SelectField
-          floatingLabelText="Question Type:"
-          onChange={this.update("type")}>
+          floatingLabelText="Question Type"
+          onChange={this.update("formType")}>
           <MenuItem value="multipleChoice" primaryText="Multiple Choice" />
           <MenuItem value="shortAnswer" primaryText="Short Answer" />
           <MenuItem value="paragraph" primaryText="Paragraph" />
