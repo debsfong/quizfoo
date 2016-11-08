@@ -1,1 +1,1 @@
-json.array! @quizzes, :id, :title, :teacher_id
+json.array! @quizzes, :id, :title, :teacher_id, :user

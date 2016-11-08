@@ -21,7 +21,23 @@ export const createQuestion = (question, success, error) => {
     method: 'POST' ,
     url: `api/questions`,
     data: {question},
-    success,
-    error
+    success
+  });
+};
+
+export const deleteQuestion = (id, success) => {
+  $.ajax({
+    method: 'DELETE' ,
+    url: `api/questions/${id}`,
+    success
+  });
+};
+
+export const updateQuestion = (question, success) => {
+  $.ajax({
+    method: 'PATCH',
+    url: `api/questions/${question.id}`,
+    data: { question },
+    success
   });
 };

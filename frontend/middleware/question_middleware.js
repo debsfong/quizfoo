@@ -1,18 +1,24 @@
 import {
   receiveQuestions,
   receiveQuestion,
+  removeQuestion,
   receiveErrors,
   REQUEST_QUESTIONS,
   REQUEST_QUESTION,
-  CREATE_QUESTION } from '../actions/question_actions';
+  CREATE_QUESTION,
+  DELETE_QUESTION,
+  UPDATE_QUESTION } from '../actions/question_actions';
 import {
   fetchQuestions,
   fetchQuestion,
-  createQuestion } from '../util/question_api_util';
+  createQuestion,
+  deleteQuestion,
+  updateQuestion} from '../util/question_api_util';
 
 export default ({dispatch}) => next => action => {
   const QuestionsSuccess = questions => dispatch(receiveQuestions(questions));
   const QuestionSuccess = question => dispatch(receiveQuestion(question));
+  const RemoveQuestionSuccess = question => dispatch(removeQuestion(question));
 
   switch (action.type) {
     case REQUEST_QUESTIONS:
@@ -23,6 +29,12 @@ export default ({dispatch}) => next => action => {
       return next(action);
     case CREATE_QUESTION:
       createQuestion(action.question, QuestionSuccess);
+      return next(action);
+    case DELETE_QUESTION:
+      deleteQuestion(action.id, RemoveQuestionSuccess);
+      return next(action);
+    case UPDATE_QUESTION:
+      updateQuestion(action.question, QuestionSuccess);
       return next(action);
     default:
       return next(action);

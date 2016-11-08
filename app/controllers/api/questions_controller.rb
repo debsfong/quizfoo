@@ -1,4 +1,14 @@
 class Api::QuestionsController < ApplicationController
+  def create
+    @question = Question.new(question_params)
+    @question.quiz_id = params[:quizId]
+
+    if @question.save
+      render "api/questions/show"
+    else
+      render json: @question.errors.full_messages, status: 422
+    end
+  end
 
   def index
     @questions = Question.where(quiz_id: params[:quizId])
@@ -11,6 +21,7 @@ class Api::QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     if @question
+      @question.destroy
       render "api/questions/show"
     else
       render(

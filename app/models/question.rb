@@ -12,8 +12,8 @@
 #
 
 class Question < ActiveRecord::Base
-  validates :text, :order, :quiz_id, presence: true
-  
+  validates :text, :quiz_id, presence: true
+
   belongs_to :quiz
   has_many :choices
 end

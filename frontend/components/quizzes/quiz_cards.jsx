@@ -65,7 +65,6 @@ class QuizCards extends React.Component {
       },
       gridList: {
         width: 1000,
-        height: 450,
         overflowY: 'auto',
       },
     };

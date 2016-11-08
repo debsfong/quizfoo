@@ -1,19 +1,33 @@
 import React from 'react';
-import { withRouter } from 'react-router';
-import RaisedButton from 'material-ui/RaisedButton';
+import QuestionEditDialog from './question_edit_dialog';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import Dialog from 'material-ui/Dialog';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
-const QuestionCardItem = ({question, router}) => {
-  const handleClick = url => e => router.push(url);
-  const handleDelete = () => {};
+class QuestionCardItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      question: this.props.question
+    };
+  }
 
-  return (
-    <Card>
-      <CardHeader
-        title={question.order + ". " + question.text}
-      />
-    </Card>
-  );
-};
+  render() {
 
-export default withRouter(QuestionCardItem);
+    return (
+      <Card>
+        <CardHeader
+          title={this.props.question.order + ". " + this.props.question.text}
+        />
+        <CardActions>
+          <RaisedButton label="Edit"/>
+          <RaisedButton label="Delete" onClick={() => this.props.deleteQuestion(this.props.question.id)}/>
+        </CardActions>
+      </Card>
+    );
+  }
+}
+
+export default QuestionCardItem;

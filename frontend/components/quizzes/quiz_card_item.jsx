@@ -10,7 +10,7 @@ const QuizCardItem = ({quiz, deleteQuiz, router}) => {
     <Card>
       <CardTitle
         title={quiz.title}
-        subtitle={"by " + quiz.teacher_id}
+        subtitle={"By " + quiz.user.first_name + " " + quiz.user.last_name}
       />
       <CardActions>
         <RaisedButton label="Edit" onClick={handleClick(`/quiz/${quiz.id}/edit`)}/>

@@ -12,6 +12,6 @@
 class Quiz < ActiveRecord::Base
   validates :title, :teacher_id, presence: true
 
-  belongs_to :user
+  belongs_to :user, foreign_key: :teacher_id
   has_many :questions
 end

@@ -6,7 +6,9 @@ import WelcomeContainer from './welcome/welcome_container';
 import SessionFormContainer from './session_form/session_form_container';
 import HeaderContainer from './header/header_container';
 import QuizCardsContainer from './quizzes/quiz_cards_container';
-import QuizEditContainer from './questions/quiz_edit_container';
+import Questions from './questions/questions';
+import QuestionCardsContainer from './questions/question_cards_container';
+import ResultsContainer from './results/results_container';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -28,7 +30,10 @@ const Root = ({ store }) => {
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/quizzes" component={QuizCardsContainer} />
-          <Route path="/quiz/:quizId/edit" component={QuizEditContainer} />
+          <Route path="/quiz" component={Questions}>
+            <Route path="/quiz/:quizId/edit" component={QuestionCardsContainer} />
+            <Route path="/quiz/:quizId/analyze" component={ResultsContainer} />
+          </Route>
         </Route>
       </Router>
     </Provider>

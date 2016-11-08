@@ -5,13 +5,9 @@ import IconButton from 'material-ui/IconButton';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import RaisedButton from 'material-ui/RaisedButton';
 
-const titleClick = () => console.log('title');
-
 const sessionLinks = () => (
   <AppBar
-    onTitleTouchTap={titleClick}
-    title={
-      <span style={styles.title}>Quizfoo</span>}
+    title="QuizFoo"
     iconElementLeft={<Link to="/"><IconButton><ActionHome /></IconButton></Link>}
     iconElementRight={
       <div>
@@ -23,15 +19,10 @@ const sessionLinks = () => (
   />
 );
 
-const styles = {
-  title: {
-    cursor: 'pointer',
-  },
-};
-
 const personalHeader = (currentUser, logout) => (
   <AppBar
     title="Quizfoo"
+    iconElementLeft={<Link to="/"><IconButton><ActionHome /></IconButton></Link>}
     iconElementRight={
       <Link to="/"><RaisedButton onClick={logout} label="Log Out" /></Link>
     }
