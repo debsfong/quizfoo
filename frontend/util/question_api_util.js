@@ -26,7 +26,6 @@ export const createQuestion = (question, success) => {
 };
 
 export const deleteQuestion = (id, success) => {
-  debugger;
   $.ajax({
     method: 'DELETE' ,
     url: `api/questions/${id}`,
