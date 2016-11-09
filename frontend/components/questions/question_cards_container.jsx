@@ -3,7 +3,7 @@ import { createQuestion, requestQuestions, deleteQuestion } from '../../actions/
 import { requestQuiz } from '../../actions/quiz_actions';
 import QuestionCards from './question_cards';
 
-const mapStateToProps = (state ) => ({
+const mapStateToProps = (state) => ({
   questions: state.questions,
   quiz: state.quiz
 });

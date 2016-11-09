@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import {Tabs, Tab} from 'material-ui/Tabs';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 class ResultsTable extends React.Component {
@@ -19,8 +20,13 @@ class ResultsTable extends React.Component {
             adjustForCheckbox={false}
           >
             <TableRow>
-              <TableHeaderColumn>Question</TableHeaderColumn>
-              <TableHeaderColumn>Response</TableHeaderColumn>
+              <TableHeaderColumn colSpan="2">
+                <h2>{this.props.question.order + ". " + this.props.question.text}</h2>
+              </TableHeaderColumn>
+            </TableRow>
+            <TableRow>
+              <TableHeaderColumn><h3>STUDENT</h3></TableHeaderColumn>
+              <TableHeaderColumn><h3>RESPONSE</h3></TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -28,22 +34,12 @@ class ResultsTable extends React.Component {
             showRowHover={true}
             stripedRows={true}
           >
-            <TableRow>
-              <TableRowColumn>1</TableRowColumn>
-              <TableRowColumn>John Smith</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>2</TableRowColumn>
-              <TableRowColumn>Randal White</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>3</TableRowColumn>
-              <TableRowColumn>Stephanie Sanders</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>4</TableRowColumn>
-              <TableRowColumn>Steve Brown</TableRowColumn>
-            </TableRow>
+            {this.props.question.responses.map((response, idx) => (
+              <TableRow key={idx}>
+                <TableRowColumn>{response.student_id}</TableRowColumn>
+                <TableRowColumn>{response.value}</TableRowColumn>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </div>

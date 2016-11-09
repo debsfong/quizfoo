@@ -11,10 +11,6 @@ class Api::UsersController < ApplicationController
 		end
 	end
 
-	def teacher_quizzes
-		@current_user.quizzes
-	end
-
 	private
 
 	def user_params

@@ -12,7 +12,7 @@ class QuestionContents extends React.Component {
       for (var i = 0; i < this.props.question.choices.length; i++) {
         choices.push(<li key={i}>{this.props.question.choices[i].value}</li>);
       }
-      return <ul>{choices}</ul>;
+      return <ol type="a">{choices}</ol>;
     } else {
       console.log(this.props.question.form_type);
     }
