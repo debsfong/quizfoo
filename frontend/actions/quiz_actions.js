@@ -7,8 +7,9 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const DELETE_QUIZ = "DELETE_QUIZ";
 export const REMOVE_QUIZ = "REMOVE_QUIZ";
 
-export const requestQuizzes = () => ({
-  type: REQUEST_QUIZZES
+export const requestQuizzes = (requestType) => ({
+  type: REQUEST_QUIZZES,
+  requestType
 });
 
 export const requestQuiz = (id) => ({

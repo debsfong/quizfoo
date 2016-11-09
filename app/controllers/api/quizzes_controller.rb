@@ -11,7 +11,11 @@ class Api::QuizzesController < ApplicationController
   end
 
   def index
-    @quizzes = Quiz.where(teacher_id: current_user.id)
+    if params[:requestType] == "index"
+      @quizzes = Quiz.all
+    else
+      @quizzes = Quiz.where(teacher_id: current_user.id)
+    end
   end
 
   def show

@@ -9,7 +9,7 @@ import QuizNav from './header/quiz_nav';
 import QuizCardsContainer from './quizzes/quiz_cards_container';
 import QuestionCardsContainer from './questions/question_cards_container';
 import ResultsContainer from './results/results_container';
-import QuizIndex from './quizzes/quiz_index';
+import QuizIndexContainer from './quizzes/quiz_index_container';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -39,7 +39,7 @@ const Root = ({ store }) => {
           <IndexRoute component={WelcomeContainer} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/index" component={QuizIndex}/>
+          <Route path="/index" component={QuizIndexContainer}/>
           <Route path="/quizzes" component={QuizCardsContainer} onEnter={_redirectIfLoggedOut}/>
             <Route path="/quiz/:quizId/edit" component={QuestionCardsContainer} onEnter={_redirectIfLoggedOut}/>
             <Route path="/quiz/:quizId/analyze" component={ResultsContainer} onEnter={_redirectIfLoggedOut}/>

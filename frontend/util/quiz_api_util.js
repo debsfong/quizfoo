@@ -1,7 +1,8 @@
-export const fetchQuizzes = success => {
+export const fetchQuizzes = (requestType, success) => {
   $.ajax({
     method: 'GET',
     url: `api/quizzes`,
+    data: {requestType},
     success,
     error: () => console.log('error')
   });

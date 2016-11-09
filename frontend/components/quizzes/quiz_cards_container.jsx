@@ -2,10 +2,9 @@ import { connect } from 'react-redux';
 import { createQuiz, requestQuizzes, deleteQuiz } from '../../actions/quiz_actions';
 import QuizCards from './quiz_cards';
 
-const mapStateToProps = ({ quiz, session, quizzes }) => ({
+const mapStateToProps = ({ quiz, quizzes }) => ({
   quiz,
   quizzes,
-  teacher_id: session.currentUser.id
 });
 
 const mapDispatchToProps = dispatch => ({

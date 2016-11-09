@@ -15,7 +15,6 @@ class QuizCards extends React.Component {
       open: false,
       quiz: {
         title: "",
-        teacher_id: this.props.teacher_id
       }
     };
 
@@ -25,7 +24,7 @@ class QuizCards extends React.Component {
   }
 
   componentWillMount() {
-    this.props.requestQuizzes();
+    this.props.requestQuizzes("myQuizzes");
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -51,8 +50,7 @@ class QuizCards extends React.Component {
 
   update() {
     return (e) => this.setState ({
-      quiz: {title: e.target.value,
-            teacher_id: this.props.teacher_id}
+      quiz: {title: e.target.value}
     });
   }
 
@@ -85,7 +83,6 @@ class QuizCards extends React.Component {
     ];
 
     return (
-
       <div style={styles.root}>
         <br/>
         <GridList

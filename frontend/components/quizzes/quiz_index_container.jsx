@@ -8,7 +8,7 @@ const mapStateToProps = ({ quiz, quizzes }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestQuizzes: () => dispatch(requestQuizzes()),
+  requestQuizzes: (requestType) => dispatch(requestQuizzes(requestType)),
 });
 
 export default connect(

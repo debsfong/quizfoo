@@ -20,7 +20,7 @@ export default ({dispatch}) => next => action => {
 
   switch (action.type) {
     case REQUEST_QUIZZES:
-      fetchQuizzes(QuizzesSuccess);
+      fetchQuizzes(action.requestType, QuizzesSuccess);
       return next(action);
     case REQUEST_QUIZ:
       fetchQuiz(action.id, QuizSuccess);

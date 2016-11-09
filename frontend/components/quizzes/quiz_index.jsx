@@ -11,8 +11,7 @@ class QuizIndex extends React.Component {
   }
 
   componentWillMount() {
-    debugger;
-    this.props.requestQuizzes();
+    this.props.requestQuizzes("index");
   }
 
   render() {
@@ -28,22 +27,15 @@ class QuizIndex extends React.Component {
       },
     };
 
-    const actions = [
-      <FlatButton
-        label="View"
-        primary={true}
-        onClick={this.handleSubmit}
-      />
-    ];
-
     return (
       <div style={styles.root}>
+        <br/>
         <GridList
           cols={4}
           padding={20}
           style={styles.gridList}>
           {this.props.quizzes.map((quiz, idx) => (
-            <Card>
+            <Card key={idx}>
               <CardTitle
                 title={quiz.title}
                 subtitle={"By " + quiz.user.first_name + " " + quiz.user.last_name}
