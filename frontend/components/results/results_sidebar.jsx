@@ -16,8 +16,7 @@ class ResultsSidebar extends React.Component {
             adjustForCheckbox={false}
           >
             <TableRow>
-              <TableHeaderColumn>Student</TableHeaderColumn>
-              <TableHeaderColumn>Name</TableHeaderColumn>
+              <TableHeaderColumn>Student Name</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -26,19 +25,15 @@ class ResultsSidebar extends React.Component {
             stripedRows={true}
           >
             <TableRow>
-              <TableRowColumn>1</TableRowColumn>
               <TableRowColumn>John Smith</TableRowColumn>
             </TableRow>
             <TableRow>
-              <TableRowColumn>2</TableRowColumn>
               <TableRowColumn>Randal White</TableRowColumn>
             </TableRow>
             <TableRow>
-              <TableRowColumn>3</TableRowColumn>
               <TableRowColumn>Stephanie Sanders</TableRowColumn>
             </TableRow>
             <TableRow>
-              <TableRowColumn>4</TableRowColumn>
               <TableRowColumn>Steve Brown</TableRowColumn>
             </TableRow>
           </TableBody>

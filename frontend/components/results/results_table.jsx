@@ -19,7 +19,7 @@ class ResultsTable extends React.Component {
             adjustForCheckbox={false}
           >
             <TableRow>
-              <TableHeaderColumn>Student</TableHeaderColumn>
+              <TableHeaderColumn>Question</TableHeaderColumn>
               <TableHeaderColumn>Response</TableHeaderColumn>
             </TableRow>
           </TableHeader>
