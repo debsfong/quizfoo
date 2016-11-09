@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { createQuestion, requestQuestions, deleteQuestion } from '../../actions/question_actions';
 import { requestQuiz } from '../../actions/quiz_actions';
-import QuestionCards from './question_cards';
+import QuizNav from './quiz_nav';
 
-const mapStateToProps = (state ) => ({
+const mapStateToProps = (state) => ({
   questions: state.questions,
   quiz: state.quiz
 });
@@ -18,4 +18,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(QuestionCards);
+)(QuizNav);

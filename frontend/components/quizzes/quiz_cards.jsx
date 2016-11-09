@@ -24,7 +24,7 @@ class QuizCards extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestQuizzes();
   }
 
@@ -61,11 +61,11 @@ class QuizCards extends React.Component {
       root: {
         display: 'flex',
         flexWrap: 'wrap',
-        justifyContent: 'space-around',
+        justifyContent: 'space-around'
       },
       gridList: {
         width: 1000,
-        overflowY: 'auto',
+        overflowY: 'auto'
       },
     };
 
@@ -87,6 +87,7 @@ class QuizCards extends React.Component {
     return (
 
       <div style={styles.root}>
+        <br/>
         <GridList
           cols={4}
           padding={20}

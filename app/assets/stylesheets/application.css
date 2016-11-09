@@ -69,3 +69,18 @@ body {
 .filter {
   font-weight: bold;
 }
+
+.results-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.results-sidebar {
+  flex: 1;
+  padding-right: 5px;
+}
+
+.results-table {
+  flex: 3;
+  padding-left: 5px;
+}

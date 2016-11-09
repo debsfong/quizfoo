@@ -5,10 +5,11 @@ import App from './app.jsx';
 import WelcomeContainer from './welcome/welcome_container';
 import SessionFormContainer from './session_form/session_form_container';
 import HeaderContainer from './header/header_container';
+import QuizNav from './header/quiz_nav';
 import QuizCardsContainer from './quizzes/quiz_cards_container';
-import Questions from './questions/questions';
 import QuestionCardsContainer from './questions/question_cards_container';
 import ResultsContainer from './results/results_container';
+import QuizIndex from './quizzes/quiz_index';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -28,6 +29,8 @@ const Root = ({ store }) => {
       replace('/');
     }
   };
+  // <Route path="/quiz/:quizId" component={QuizNav} onEnter={_redirectIfLoggedOut}>
+  // </Route>
 
   return (
     <Provider store={store}>
@@ -36,11 +39,10 @@ const Root = ({ store }) => {
           <IndexRoute component={WelcomeContainer} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
+          <Route path="/index" component={QuizIndex}/>
           <Route path="/quizzes" component={QuizCardsContainer} onEnter={_redirectIfLoggedOut}/>
-          <Route path="/quiz" component={Questions} onEnter={_redirectIfLoggedOut}>
             <Route path="/quiz/:quizId/edit" component={QuestionCardsContainer} onEnter={_redirectIfLoggedOut}/>
             <Route path="/quiz/:quizId/analyze" component={ResultsContainer} onEnter={_redirectIfLoggedOut}/>
-          </Route>
         </Route>
       </Router>
     </Provider>

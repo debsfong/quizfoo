@@ -32,7 +32,6 @@ class QuestionCards extends React.Component {
   }
 
   render () {
-
     return (
       <div>
         <h1>{this.props.quiz.title}</h1>

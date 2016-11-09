@@ -6,8 +6,9 @@ import IconButton from 'material-ui/IconButton';
 import NavMenu from 'material-ui/svg-icons/navigation/menu';
 import NavApps from 'material-ui/svg-icons/navigation/apps';
 import ActionHome from 'material-ui/svg-icons/action/home';
+import ViewComfy from 'material-ui/svg-icons/image/view-comfy';
 
-class SidebarMenu extends React.Component {
+class HeaderMenu extends React.Component {
 
   constructor(props) {
     super(props);
@@ -33,10 +34,16 @@ class SidebarMenu extends React.Component {
             leftIcon={<NavApps />}
             primaryText="My Quizzes"
           />
+          <MenuItem
+            linkButton={true}
+            containerElement={<Link to="/index" />}
+            leftIcon={<ViewComfy />}
+            primaryText="All Quizzes"
+          />
         </IconMenu>
       </div>
     );
   }
 }
 
-export default SidebarMenu;
+export default HeaderMenu;
