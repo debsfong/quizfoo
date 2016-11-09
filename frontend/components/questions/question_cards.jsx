@@ -18,10 +18,10 @@ class QuestionCards extends React.Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  componentDidMount() {
-    this.props.requestQuiz(this.props.params.quizId);
-    this.props.requestQuestions(this.props.params.quizId);
-  }
+  // componentDidMount() {
+  //   this.props.requestQuiz(this.props.params.quizId);
+  //   this.props.requestQuestions(this.props.params.quizId);
+  // }
 
   handleOpen() {
     this.setState({open: true});

@@ -3,9 +3,9 @@ import { createQuestion, requestQuestions, deleteQuestion } from '../../actions/
 import { requestQuiz } from '../../actions/quiz_actions';
 import QuizNav from './quiz_nav';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   questions: state.questions,
-  quiz: state.quiz
+  quiz: state.quiz,
 });
 
 const mapDispatchToProps = dispatch => ({

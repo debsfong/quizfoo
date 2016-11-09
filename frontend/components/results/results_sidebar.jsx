@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import StudentsList from './students_list';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 

@@ -11,9 +11,9 @@ class Results extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.props.requestQuestions(this.props.params.quizId);
-  }
+  // componentWillMount() {
+  //   this.props.requestQuestions(this.props.params.quizId);
+  // }
 
   render() {
     return (
