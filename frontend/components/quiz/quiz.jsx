@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 
 class Quiz extends React.Component {
   constructor(props) {
@@ -23,18 +24,20 @@ class Quiz extends React.Component {
         return (
           <div>
             <h2>{question.text}</h2>
-            {question.choices.map((choice, idx) => (
-
-            ))}
+            <ol type="a">
+              {question.choices.map((choice, i) => (
+                <li key={i}>{choice.value}</li>
+              ))}
+            </ol>
           </div>
-        )
+        );
       case "shortAnswer":
         return (
           <div>
             <h2>{question.text}</h2>
             <TextField hintText="Short Answer"/>
-          </div>;
-        )
+          </div>
+        );
       case "paragraph":
         return (
           <div>

@@ -41,7 +41,7 @@ class QuizIndex extends React.Component {
                 subtitle={"By " + quiz.user.first_name + " " + quiz.user.last_name}
               />
               <CardActions>
-                <RaisedButton label="View" primary={true} />
+                <Link to={`/quiz/${quiz.id}/view`}><RaisedButton label="View" primary={true} /></Link>
               </CardActions>
             </Card>
           ))}
