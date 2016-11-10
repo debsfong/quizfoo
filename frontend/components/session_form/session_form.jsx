@@ -17,6 +17,7 @@ class SessionForm extends React.Component {
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.guestTeacher = this.guestTeacher.bind(this);
+		this.updateDropdown = this.updateDropdown.bind(this);
 	}
 
   handleSubmit(e) {
@@ -51,6 +52,10 @@ class SessionForm extends React.Component {
 		return (e) => this.setState ({
 			[field]: e.target.value
 		});
+	}
+
+	updateDropdown(event, index, value) {
+		this.setState({status: value});
 	}
 
 	navLink() {
@@ -88,10 +93,10 @@ class SessionForm extends React.Component {
 			return (
 				<div>
 					<SelectField
-						disabled={true}
+						disabled={false}
 						floatingLabelText="I am a:"
 						value={this.state.status}
-						onChange={this.update("status")}>
+						onChange={this.updateDropdown}>
 						<MenuItem value="teacher" primaryText="Teacher" />
 						<MenuItem value="student" primaryText="Student" />
 					</SelectField>
@@ -128,7 +133,7 @@ class SessionForm extends React.Component {
 							<br/>
 							<RaisedButton type="submit" label="Submit" />
 							<br />
-							<RaisedButton onClick={this.guestTeacher} label="Guest Teacher"/>
+							<RaisedButton onClick={this.guestTeacher} label="Teacher Demo"/>
 						</div>
 						{this.navLink()}
 					</form>

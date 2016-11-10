@@ -15,6 +15,7 @@ class QuestionModal extends React.Component {
       choices: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateDropdown = this.updateDropdown.bind(this);
   }
 
   handleSubmit(e) {
@@ -31,12 +32,16 @@ class QuestionModal extends React.Component {
 		});
   }
 
+  updateDropdown(event, index, value) {
+    this.setState({form_type: value});
+  }
+
   formOptions() {
-    // if (this.state.questionType === "multipleChoice") {
-    //   return (
-    //     <TextField hintText="Option" onChange={this.update("")}
-    //   );
-    // }
+    if (this.state.form_type === "multipleChoice") {
+      return (
+        <TextField hintText="Option" />
+      );
+    }
   }
 
   render() {
@@ -46,8 +51,10 @@ class QuestionModal extends React.Component {
           onChange={this.update("text")} />
         <br/>
         <SelectField
+          disabled={false}
+          value={this.state.form_type}
           floatingLabelText="Question Type"
-          onChange={this.update("formType")}>
+          onChange={this.updateDropdown}>
           <MenuItem value="multipleChoice" primaryText="Multiple Choice" />
           <MenuItem value="shortAnswer" primaryText="Short Answer" />
           <MenuItem value="paragraph" primaryText="Paragraph" />
