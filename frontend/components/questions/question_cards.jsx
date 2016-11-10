@@ -38,11 +38,13 @@ class QuestionCards extends React.Component {
         {this.props.questions.map((question, idx) => (
           <QuestionCardItem
             key={idx}
+            quizId={this.props.quiz.id}
             question={question}
             deleteQuestion={this.props.deleteQuestion}
-            handleOpen={this.props.handleOpen}/>
+            handleOpen={this.props.handleOpen}
+            requestQuestions={this.props.requestQuestions}/>
         ))}
-        <Card onTouchTap={this.handleOpen}>
+        <Card className="create-card" onTouchTap={this.handleOpen}>
           <CardTitle title="+ Add a Question" />
         </Card>
         <Dialog
@@ -53,7 +55,8 @@ class QuestionCards extends React.Component {
           <QuestionModal
             quizId={this.props.quiz.id}
             handleClose={this.handleClose}
-            createQuestion={this.props.createQuestion}/>
+            createQuestion={this.props.createQuestion}
+            requestQuestions={this.props.requestQuestions}/>
         </Dialog>
       </div>
     );

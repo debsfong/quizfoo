@@ -45,7 +45,7 @@ User.create!(
   status: "student",
   password: "password")
 
-Quiz.create!(title: "Quiz", teacher_id: 1)
+Quiz.create!(title: "Questions Quiz", teacher_id: 1)
 Quiz.create!(title: "Addition", teacher_id: 1)
 Quiz.create!(title: "Subtraction", teacher_id: 2)
 Quiz.create!(title: "Multiplication", teacher_id: 2)

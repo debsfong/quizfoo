@@ -84,7 +84,6 @@ class QuizCards extends React.Component {
 
     return (
       <div style={styles.root}>
-        <br/>
         <GridList
           cols={4}
           padding={20}

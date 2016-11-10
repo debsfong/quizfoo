@@ -12,17 +12,22 @@ class QuestionCardItem extends React.Component {
       open: false,
       question: this.props.question
     };
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete() {
+    this.props.deleteQuestion(this.props.question.id);
+    this.props.requestQuestions(this.props.quizId);
   }
 
   render() {
-
     return (
       <Card>
         <CardHeader title={this.props.question.order + ". " + this.props.question.text} />
         <QuestionContents question={this.props.question}/>
         <CardActions>
           <RaisedButton label="Edit" primary={true} onClick={this.props.handleOpen}/>
-          <RaisedButton label="Delete" onClick={() => this.props.deleteQuestion(this.props.question.id)}/>
+          <RaisedButton label="Delete" onClick={this.handleDelete}/>
         </CardActions>
       </Card>
     );

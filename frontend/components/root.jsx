@@ -10,6 +10,7 @@ import QuizCardsContainer from './quizzes/quiz_cards_container';
 import QuestionCardsContainer from './questions/question_cards_container';
 import ResultsContainer from './results/results_container';
 import QuizIndexContainer from './quizzes/quiz_index_container';
+import QuizContainer from './quiz/quiz_container';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -40,8 +41,7 @@ const Root = ({ store }) => {
           <Route path="/index" component={QuizIndexContainer} />
           <Route path="/quizzes" component={QuizCardsContainer} onEnter={_redirectIfLoggedOut} />
           <Route path="/quiz/:quizId" component={QuizNavContainer} onEnter={_redirectIfLoggedOut} />
-          <Route path="/quiz/:quizId/edit" component={QuestionCardsContainer} onEnter={_redirectIfLoggedOut} />
-          <Route path="/quiz/:quizId/analyze" component={ResultsContainer} onEnter={_redirectIfLoggedOut} />
+          <Route path="/quiz/:quizId/view" component={QuizContainer} onEnter={_redirectIfLoggedOut} />
         </Route>
       </Router>
     </Provider>

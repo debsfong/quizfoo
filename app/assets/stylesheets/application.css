@@ -84,3 +84,7 @@ body {
   flex: 3;
   padding-left: 5px;
 }
+
+.create-card {
+  cursor: pointer;
+}

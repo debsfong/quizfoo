@@ -11,9 +11,9 @@ class QuestionModal extends React.Component {
     this.state = {
       text: "",
       form_type: "shortAnswer",
-      quiz_id: this.props.quizId
+      quiz_id: this.props.quizId,
+      choices: []
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,12 +22,21 @@ class QuestionModal extends React.Component {
     e.preventDefault();
     const question = this.state;
     this.props.createQuestion(question);
+    this.props.requestQuestions(this.props.quizId);
   }
 
   update(field) {
     return (e) => this.setState ({
 			[field]: e.target.value
 		});
+  }
+
+  formOptions() {
+    // if (this.state.questionType === "multipleChoice") {
+    //   return (
+    //     <TextField hintText="Option" onChange={this.update("")}
+    //   );
+    // }
   }
 
   render() {
@@ -44,6 +53,7 @@ class QuestionModal extends React.Component {
           <MenuItem value="paragraph" primaryText="Paragraph" />
         </SelectField>
         <br/>
+        {this.formOptions}
         <FlatButton label="Cancel" onClick={this.props.handleClose}/>
         <RaisedButton primary={true} type="submit" label="Submit" />
       </form>
