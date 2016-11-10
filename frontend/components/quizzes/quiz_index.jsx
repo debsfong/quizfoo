@@ -47,7 +47,6 @@ class QuizIndex extends React.Component {
           ))}
         </GridList>
       </div>
-
     );
   }
 }
