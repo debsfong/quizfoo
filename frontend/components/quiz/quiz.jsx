@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router';
 import QuestionContents from '../questions/question_contents';
 import TextField from 'material-ui/TextField';
 import {Card, CardActions, CardHeader, CardText, CardTitle} from 'material-ui/Card';

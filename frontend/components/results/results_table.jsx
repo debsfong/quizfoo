@@ -36,7 +36,7 @@ class ResultsTable extends React.Component {
           >
             {this.props.question.responses.map((response, idx) => (
               <TableRow key={idx}>
-                <TableRowColumn>{response.student_id}</TableRowColumn>
+                <TableRowColumn>{response.last_name + ", " + response.first_name}</TableRowColumn>
                 <TableRowColumn>{response.value}</TableRowColumn>
               </TableRow>
             ))}

@@ -4,7 +4,7 @@ import QuizCards from './quiz_cards';
 
 const mapStateToProps = ({ quiz, quizzes }) => ({
   quiz,
-  quizzes,
+  quizzes
 });
 
 const mapDispatchToProps = dispatch => ({

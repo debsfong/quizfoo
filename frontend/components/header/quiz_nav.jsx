@@ -19,6 +19,7 @@ class QuizNav extends React.Component {
     return (
       <Tabs>
         <Tab label="Create">
+          <br />
           <QuestionCards
             questions={this.props.questions}
             quiz={this.props.quiz}

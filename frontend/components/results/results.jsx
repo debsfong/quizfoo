@@ -11,10 +11,6 @@ class Results extends React.Component {
     };
   }
 
-  // componentWillMount() {
-  //   this.props.requestQuestions(this.props.params.quizId);
-  // }
-
   render() {
     return (
       <div className="results-box">
