@@ -33,8 +33,8 @@ class QuestionCards extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>{this.props.quiz.title}</h1>
+      <Card>
+        <CardTitle title={this.props.quiz.title} />
         {this.props.questions.map((question, idx) => (
           <QuestionCardItem
             key={idx}
@@ -58,7 +58,7 @@ class QuestionCards extends React.Component {
             createQuestion={this.props.createQuestion}
             requestQuestions={this.props.requestQuestions}/>
         </Dialog>
-      </div>
+      </Card>
     );
   }
 }

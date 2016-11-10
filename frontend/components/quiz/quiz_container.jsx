@@ -5,7 +5,8 @@ import Quiz from './quiz';
 
 const mapStateToProps = (state) => ({
   questions: state.questions,
-  quiz: state.quiz
+  quiz: state.quiz,
+  quizId: state.quiz.id
 });
 
 const mapDispatchToProps = (dispatch) => ({
