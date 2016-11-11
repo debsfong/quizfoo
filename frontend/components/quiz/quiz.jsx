@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField';
 import {Card, CardActions, CardHeader, CardText, CardTitle} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
 class Quiz extends React.Component {
   constructor(props) {
@@ -26,6 +27,46 @@ class Quiz extends React.Component {
     this.props.router.push('/index');
   }
 
+  update(questionId) {
+    let responses = this.state.responses.slice();
+    responses.push({
+      question_id: questionId,
+      // value: e.target.value
+    });
+    // this.setState({ responses: responses });
+  }
+
+  contents(question) {
+    switch (question.form_type) {
+      case "multipleChoice":
+        return (
+          <RadioButtonGroup name={question.text}>
+            {question.choices.map((choice, idx) => (
+              <RadioButton key={idx} value={choice.value} label={choice.value} />
+            ))}
+          </RadioButtonGroup>
+        );
+      case "shortAnswer":
+        return (
+          <TextField
+            hintText="Short Answer"
+            onChange={this.update(question.id)}/>
+        );
+      case "paragraph":
+        return (
+          <TextField
+            hintText="Complete Sentences"
+            multiLine={true}
+            rows={4}
+            onChange={this.update(question.id)}/>
+        );
+      default:
+        return (
+          <div>{question.form_type}</div>
+        );
+    }
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -34,7 +75,9 @@ class Quiz extends React.Component {
           {this.props.questions.map((question, idx) => (
             <Card key={idx}>
               <CardHeader title={question.order + ". " + question.text} />
-              <QuestionContents question={question} containerThis={this}/>
+              <CardText>
+                {this.contents(question)}
+              </CardText>
             </Card>
           ))}
           <RaisedButton type="submit" label="Submit" primary={true} />

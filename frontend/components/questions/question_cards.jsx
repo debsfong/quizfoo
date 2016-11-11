@@ -51,6 +51,7 @@ class QuestionCards extends React.Component {
             quizId={this.props.quiz.id}
             handleClose={this.handleClose}
             createQuestion={this.props.createQuestion}
+            createChoice={this.props.createChoice}
             requestQuestions={this.props.requestQuestions}/>
         </Dialog>
       </Card>

@@ -5,10 +5,10 @@ import { requestQuiz } from '../../actions/quiz_actions';
 import { createResponse } from '../../actions/response_actions';
 import Quiz from './quiz';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   questions: state.questions,
   quiz: state.quiz,
-  quizId: state.quiz.id
+  quizId: ownProps.params.quizId
 });
 
 const mapDispatchToProps = (dispatch) => ({

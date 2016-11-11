@@ -35,6 +35,6 @@ class Api::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:text, :order, :quiz_id, :form_type)
+    params.require(:question).permit(:text, :order, :quiz_id, :form_type, choices_attributes: [:question_id, :value])
   end
 end

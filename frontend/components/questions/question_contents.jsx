@@ -1,4 +1,5 @@
 import React from 'react';
+import merge from 'lodash/merge';
 import TextField from 'material-ui/TextField';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
@@ -11,9 +12,9 @@ class QuestionContents extends React.Component {
   }
 
   updateResponse() {
-    let choice = "choice";
+    let response = [];
     this.props.containerThis.setState({
-      responses: this.props.containerThis.state.responses.concat([choice])
+      responses: this.props.containerThis.state.responses.concat([response])
     });
   }
 

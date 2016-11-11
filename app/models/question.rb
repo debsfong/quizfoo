@@ -15,6 +15,7 @@ class Question < ActiveRecord::Base
   validates :text, :quiz_id, presence: true
 
   belongs_to :quiz
-  has_many :choices
-  has_many :responses
+  has_many :choices, dependent: :destroy
+  accepts_nested_attributes_for :choices
+  has_many :responses, dependent: :destroy
 end

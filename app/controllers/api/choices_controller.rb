@@ -1,7 +1,8 @@
 class Api::ChoicesController < ApplicationController
   def create
     @choice = Choice.new(choice_params)
-
+    @choice.question_id = Question.last.id
+    
     if @choice.save
       render 'api/choices/show'
     else
