@@ -1,5 +1,5 @@
 import { CREATE_RESPONSE, receiveResponse } from '../actions/response_actions';
-import { createResponse } from '../util/question_api_util';
+import { createResponse } from '../util/response_api_util';
 
 export default ({dispatch}) => next => action => {
   const ResponseSuccess = response => dispatch(receiveResponse(response));

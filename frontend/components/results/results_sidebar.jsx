@@ -13,7 +13,6 @@ class ResultsSidebar extends React.Component {
     this.props.containerThis.setState({
       question: this.props.questions[key]
     });
-    console.log(this.props.questions[key]);
   }
 
   render() {

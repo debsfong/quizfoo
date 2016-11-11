@@ -7,6 +7,14 @@ class QuestionContents extends React.Component {
   constructor(props) {
     super(props);
     this.contents = this.contents.bind(this);
+    this.updateResponse = this.updateResponse.bind(this);
+  }
+
+  updateResponse() {
+    let choice = "choice";
+    this.props.containerThis.setState({
+      responses: this.props.containerThis.state.responses.concat([choice])
+    });
   }
 
   contents() {

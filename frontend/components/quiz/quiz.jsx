@@ -9,6 +9,9 @@ import Paper from 'material-ui/Paper';
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      responses: []
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -19,6 +22,7 @@ class Quiz extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.state.responses.map(response => this.props.createResponse(response));
     this.props.router.push('/index');
   }
 
@@ -30,7 +34,7 @@ class Quiz extends React.Component {
           {this.props.questions.map((question, idx) => (
             <Card key={idx}>
               <CardHeader title={question.order + ". " + question.text} />
-              <QuestionContents question={question} />
+              <QuestionContents question={question} containerThis={this}/>
             </Card>
           ))}
           <RaisedButton type="submit" label="Submit" primary={true} />

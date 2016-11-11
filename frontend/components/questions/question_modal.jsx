@@ -10,12 +10,18 @@ class QuestionModal extends React.Component {
     super(props);
     this.state = {
       text: "",
-      form_type: "shortAnswer",
+      form_type: "multipleChoice",
       quiz_id: this.props.quizId,
-      choices: []
+      choices: [
+        {value: ""},
+        {value: ""},
+        {value: ""},
+        {value: ""}
+      ]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateDropdown = this.updateDropdown.bind(this);
+    this.addChoice = this.addChoice.bind(this);
   }
 
   handleSubmit(e) {
@@ -36,10 +42,31 @@ class QuestionModal extends React.Component {
     this.setState({form_type: value});
   }
 
+  addChoice() {
+
+  }
+
   formOptions() {
     if (this.state.form_type === "multipleChoice") {
       return (
-        <TextField hintText="Option" />
+        <div>
+          <TextField
+            hintText="Option A"
+            value={this.state.choices[0].value}
+            onChange={this.addChoice("choices[0].value")} />
+          <TextField
+            hintText="Option B"
+            value={this.state.choices[1].value}
+            onChange={this.addChoice("choices[1].value")} />
+          <TextField
+            hintText="Option C"
+            value={this.state.choices[2].value}
+            onChange={this.addChoice("choices[2].value")} />
+          <TextField
+            hintText="Option D"
+            value={this.state.choices[3].value}
+            onChange={this.addChoice("choices[3].value")} />
+        </div>
       );
     }
   }
@@ -60,7 +87,8 @@ class QuestionModal extends React.Component {
           <MenuItem value="paragraph" primaryText="Paragraph" />
         </SelectField>
         <br/>
-        {this.formOptions}
+        {this.formOptions()}
+        <br/>
         <FlatButton label="Cancel" onClick={this.props.handleClose}/>
         <RaisedButton primary={true} type="submit" label="Submit" />
       </form>

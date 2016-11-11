@@ -38,7 +38,7 @@ class QuizNav extends React.Component {
             requestQuestions={this.props.requestQuestions}
           />
         </Tab>
-        <Tab label="View">
+        <Tab label="Preview">
           <br />
           <Quiz
             questions={this.props.questions}
