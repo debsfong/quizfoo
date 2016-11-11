@@ -13,9 +13,9 @@ Quizfoo is a full-stack web application inspired by Wufoo, Typeform, and Google 
 
   Quizzes are stored in the database as one table, and contain references to the `teacher_id`, and the `title` of the quiz. Using the `header_menu`, users are able to navigate through the site to see an index of quizzes created by all users, or view their own quizzes. These views are available through the `quiz_index` component and the `quiz_cards` component, respectively. The `quiz_index` component contains links that allow users to view and take quizzes that have been created by other users. From the `quiz_cards` component, users can choose to create, edit, or delete quizzes.
 
-  Once a user has created a quiz, they are immediately routed to the `quiz_nav` component. A new navigation bar appears at the top of the view. This `quiz_nav` component contains three separate tabs to create, analyze, and preview the current quiz.
-
   ![image of quiz_cards](wireframes/teacher-home.png)
+
+  Once a user has created a quiz, they are immediately routed to the `quiz_nav` component. A new navigation bar appears at the top of the view. This `quiz_nav` component contains three separate tabs to create, analyze, and preview the current quiz.
 
 ### Questions
 
@@ -23,7 +23,7 @@ Quizfoo is a full-stack web application inspired by Wufoo, Typeform, and Google 
 
 ### Results
 
-  The `results` component renders two separate subcomponents. On the right, a `results_sidebar` shows a list of questions that are in the current quiz. On the left, the `results-table` is rendered. When a question in the `results_sidebar` is clicked, the user is shown a table of students and responses for that specific question.  
+  The `results` component renders two separate subcomponents. On the left, a `results_sidebar` shows a list of questions that are in the current quiz. On the right, the `results-table` is rendered. When a question in the `results_sidebar` is clicked, the user is shown a table of students and responses for that specific question.  
 
   ![image of results](wireframes/view-summary.png)
 
@@ -40,7 +40,7 @@ Quizfoo is a full-stack web application inspired by Wufoo, Typeform, and Google 
 
 ### Students
 
-  Users are required sign up with an email address. In addition to ensuring uniqueness, this feature was created with the future in mind. Students would be able to join classes and teachers would be able to email quizzes to their students. Unlike teachers, students would not be bale to create quizzes, but they would be able to view their responses to quizzes that they have taken.
+  Users are required sign up with an email address. In addition to ensuring uniqueness, this feature was created with the future in mind. Students would be able to join classes and teachers would be able to email quizzes to their students. Unlike teachers, students would not be able to create quizzes, but they would be able to view their responses to quizzes that they have taken.
 
 ### Parents
 
