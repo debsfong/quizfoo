@@ -15,6 +15,8 @@ Quizfoo is a full-stack web application inspired by Wufoo, Typeform, and Google 
 
   Once a user has created a quiz, they are immediately routed to the `quiz_nav` component. A new navigation bar appears at the top of the view. This `quiz_nav` component contains three separate tabs to create, analyze, and preview the current quiz.
 
+  ![image of quiz_cards](wireframes/teacher-home.png)
+
 ### Questions
 
   The create tab is where users can add and delete questions from their quiz. This tab contains the `question_cards` component which shows each question that belongs to the quiz. The questions are stored on a separate table in the database. Each question belongs_to a quiz using the `quiz_id`, and contains `text`, `order`, and a `form_type`. The `form_type` determines whether the question will be shortAnswer, paragraph, or multipleChoice.
@@ -33,6 +35,8 @@ Quizfoo is a full-stack web application inspired by Wufoo, Typeform, and Google 
 ### Classes
 
   The ability to organize by class is crucial. Teachers may be teaching several different classes at once, and creating a way to organize the quizzes for those classes would make their lives much easier. Quizzes could also be copied between classes. In addition. they could also search for quizzes that other teachers have made based on the class title.
+
+  ![image of classes](wireframes/find-class.png)
 
 ### Students
 
