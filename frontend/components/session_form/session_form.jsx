@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			status: "teacher",
+			user_type: "teacher",
 			first_name: "",
 			last_name: "",
 			email: "",
@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
 	guestTeacher(e) {
 		e.preventDefault();
 		const user = {
-			status: "teacher",
+			user_type: "teacher",
 			first_name: "Debra",
 			last_name: "Fong",
 			email: "debra@email.com",
@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
 	}
 
 	updateDropdown(event, index, value) {
-		this.setState({status: value});
+		this.setState({user_type: value});
 	}
 
 	navLink() {
@@ -95,7 +95,7 @@ class SessionForm extends React.Component {
 					<SelectField
 						disabled={false}
 						floatingLabelText="I am a:"
-						value={this.state.status}
+						value={this.state.user_type}
 						onChange={this.updateDropdown}>
 						<MenuItem value="teacher" primaryText="Teacher" />
 						<MenuItem value="student" primaryText="Student" />

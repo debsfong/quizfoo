@@ -6,5 +6,7 @@ class CreateChoices < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :choices, :question_id
+    add_index :choices, [:value, :question_id], unique: true
   end
 end

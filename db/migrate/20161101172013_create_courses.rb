@@ -6,5 +6,6 @@ class CreateCourses < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :courses, :teacher_id
   end
 end

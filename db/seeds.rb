@@ -12,38 +12,44 @@ User.create!(
   first_name: "Debra",
   last_name: "Fong",
   email: "debra@email.com",
-  status: "teacher",
-  password: "password")
+  user_type: "teacher",
+  password: "password"
+)
 User.create!(
   first_name: "Guest",
   last_name: "Teacher",
   email: "teacher@school.k12.ca.us",
-  status: "teacher",
-  password: "password")
+  user_type: "teacher",
+  password: "password"
+)
 User.create!(
   first_name: "Guest",
   last_name: "Student",
   email: "student@email.com",
-  status: "student",
-  password: "password")
+  user_type: "student",
+  password: "password"
+)
 User.create!(
   first_name: "Guest 1",
   last_name: "Student",
   email: "student1@email.com",
-  status: "student",
-  password: "password")
+  user_type: "student",
+  password: "password"
+)
 User.create!(
   first_name: "Guest 2",
   last_name: "Student",
   email: "student2@email.com",
-  status: "student",
-  password: "password")
+  user_type: "student",
+  password: "password"
+)
 User.create!(
   first_name: "Guest 3",
   last_name: "Student",
   email: "student3@email.com",
-  status: "student",
-  password: "password")
+  user_type: "student",
+  password: "password"
+)
 
 Quiz.create!(title: "Questions Quiz", teacher_id: 1)
 Quiz.create!(title: "Addition", teacher_id: 1)

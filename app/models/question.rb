@@ -4,9 +4,9 @@
 #
 #  id         :integer          not null, primary key
 #  text       :string           not null
-#  type       :string           not null
 #  order      :integer          not null
 #  quiz_id    :integer          not null
+#  form_type  :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
