@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import RaisedButton from 'material-ui/RaisedButton';
-
 
 class Welcome extends React.Component {
   constructor(props) {
@@ -9,25 +7,15 @@ class Welcome extends React.Component {
   }
 
   welcomeButton() {
-    if (this.props.currentUser) {
-      return (
-        <Link to="/quizzes"><RaisedButton label="My Quizzes" /></Link>
-      );
-    } else {
-      return (
-        <Link to="/signup"><RaisedButton label="Get Started" /></Link>
-      );
-    }
+    return this.props.currentUser ? <Link to="/quizzes">My Quizzes</Link> : <Link to="/signup">Get Started</Link>
   }
 
   render() {
     return (
       <div className="welcome-background">
         <div className="welcome-box">
-          Making quizzes can be tedious. Quizfoo makes it easy!
-          <br/>
-          <br/>
-          {this.welcomeButton()}
+          <p>Making quizzes can be tedious. Quizfoo makes it easy!</p>
+          <Link to="/signup" className="link">Get Started</Link>
         </div>
       </div>
     );
