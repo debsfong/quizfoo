@@ -12,7 +12,7 @@ class QuestionModal extends React.Component {
       text: "",
       form_type: "multipleChoice",
       quiz_id: this.props.quizId,
-      choices: [
+      choices_attributes: [
         {value: ""},
         {value: ""},
         {value: ""},
@@ -33,7 +33,7 @@ class QuestionModal extends React.Component {
     this.props.handleClose();
     e.preventDefault();
     const question = this.state;
-    const choices_attributes = this.state.choices;
+    const choices_attributes = this.state.choices_attributes;
     this.props.createQuestion(question, choices_attributes);
     this.props.requestQuestions(this.props.quizId);
   }
@@ -49,34 +49,34 @@ class QuestionModal extends React.Component {
   }
 
   addChoiceA(e) {
-    let choices = this.state.choices.slice();
+    let choices = this.state.choices_attributes.slice();
     choices.splice(0, 1, {value: e.target.value});
     this.setState ({
-      choices: choices
+      choices_attributes: choices
     });
   }
 
   addChoiceB(e) {
-    let choices = this.state.choices.slice();
+    let choices = this.state.choices_attributes.slice();
     choices.splice(1, 1, {value: e.target.value});
     this.setState ({
-      choices: choices
+      choices_attributes: choices
     });
   }
 
   addChoiceC(e) {
-    let choices = this.state.choices.slice();
+    let choices = this.state.choices_attributes.slice();
     choices.splice(2, 1, {value: e.target.value});
     this.setState ({
-      choices: choices
+      choices_attributes: choices
     });
   }
 
   addChoiceD(e) {
-    let choices = this.state.choices.slice();
+    let choices = this.state.choices_attributes.slice();
     choices.splice(3, 1, {value: e.target.value});
     this.setState ({
-      choices: choices
+      choices_attributes: choices
     });
   }
 
@@ -86,19 +86,19 @@ class QuestionModal extends React.Component {
         <div>
           <TextField
             hintText="Option A"
-            value={this.state.choices[0].value}
+            value={this.state.choices_attributes[0].value}
             onChange={this.addChoiceA} />
           <TextField
             hintText="Option B"
-            value={this.state.choices[1].value}
+            value={this.state.choices_attributes[1].value}
             onChange={this.addChoiceB} />
           <TextField
             hintText="Option C"
-            value={this.state.choices[2].value}
+            value={this.state.choices_attributes[2].value}
             onChange={this.addChoiceC} />
           <TextField
             hintText="Option D"
-            value={this.state.choices[3].value}
+            value={this.state.choices_attributes[3].value}
             onChange={this.addChoiceD} />
         </div>
       );
