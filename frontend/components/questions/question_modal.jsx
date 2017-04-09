@@ -40,8 +40,8 @@ class QuestionModal extends React.Component {
 
   update(field) {
     return (e) => this.setState ({
-			[field]: e.target.value
-		});
+      [field]: e.target.value
+    });
   }
 
   updateDropdown(event, index, value) {

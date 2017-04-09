@@ -3,11 +3,11 @@ class Api::QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
     @quiz.teacher_id = current_user.id
 
-		if @quiz.save
-			render "api/quizzes/show"
-		else
-			render json: @quiz.errors.full_messages, status: 422
-		end
+    if @quiz.save
+      render "api/quizzes/show"
+    else
+      render json: @quiz.errors.full_messages, status: 422
+    end
   end
 
   def index

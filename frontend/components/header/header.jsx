@@ -1,31 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router';
+import SessionFormContainer from '../session_form/session_form_container';
 
-const sessionLinks = () => (
-  <nav className="header-container">
-    <div className="header-left">
-      <Link className="link" to="/">Quizfoo</Link>
-    </div>
-    <div className="header-right">
-      <Link className="link" to="/login">Log In</Link>
-      <Link className="link" to="/signup">Sign Up</Link>
-    </div>
-  </nav>
-);
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-const personalHeader = (currentUser, logout) => (
-  <nav className="header-container">
-    <div className="header-left">
-      <Link className="link" to="/">Quizfoo</Link>
-    </div>
-    <div className="header-right">
+  sessionLinks() {
+    return (
+      <SessionFormContainer />
+    );
+  }
+
+  personalHeader(currentUser, logout) {
+    return (
       <button onClick={logout}>Log Out</button>
-    </div>
-  </nav>
-);
+    )
+  }
 
-const Header = ({ currentUser, logout }) => (
-  currentUser ? personalHeader(currentUser, logout) : sessionLinks()
-);
+  render() {
+    return (
+      <nav className="header-container">
+        <div className="header-left">
+          <button to="/">Quizfoo</button>
+        </div>
+        <div className="header-right">
+          {this.props.currentUser ? this.personalHeader(this.props.currentUser, this.props.logout) : this.sessionLinks()}
+        </div>
+      </nav>
+    )
+  }
+}
 
 export default Header;

@@ -12,15 +12,15 @@ class Welcome extends React.Component {
 
   render() {
     return (
-      <div className="welcome-background">
-        <div className="welcome-box">
-          <p>Making quizzes can be tedious. Quizfoo makes it easy!</p>
-          <Link to="/signup" className="link">Get Started</Link>
+      <div>
+        <div className="welcome-main">
+          <p className="tagline">Making quizzes can be tedious. Quizfoo makes it easy!</p>
+          <button to="/signup" className="button">Get Started</button>
         </div>
+        <img className="welcome-background" src="https://images.unsplash.com/photo-1475092980020-2094a10518d2?dpr=2&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=&bg="></img>
       </div>
     );
   }
-
 }
 
 export default Welcome;

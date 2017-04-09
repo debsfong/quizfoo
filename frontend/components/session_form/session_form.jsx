@@ -1,79 +1,103 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import Modal from 'react-modal';
 
 class SessionForm extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			user_type: "teacher",
-			first_name: "",
-			last_name: "",
-			email: "",
-			password: ""
-		};
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.guestTeacher = this.guestTeacher.bind(this);
-		this.updateDropdown = this.updateDropdown.bind(this);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      user_type: "student",
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+      modalOpen: false,
+      modalType: 'login'
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestTeacher = this.guestTeacher.bind(this);
+    this.updateDropdown = this.updateDropdown.bind(this);
+  }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
+    if (this.state.modalType === 'login') {
+      this.props.login({user});
+    } else {
+      this.props.signup({user});
+    }
   }
 
-	guestTeacher(e) {
-		e.preventDefault();
-		const user = {
-			user_type: "teacher",
-			first_name: "Debra",
-			last_name: "Fong",
-			email: "debra@email.com",
-			password: "password"
-			};
-		this.props.login({user});
-	}
+  guestTeacher(e) {
+    e.preventDefault();
+    const user = {
+      user_type: "teacher",
+      first_name: "Debra",
+      last_name: "Fong",
+      email: "debra@email.com",
+      password: "password"
+      };
+    this.props.login({user});
+  }
 
-	componentDidUpdate() {
-		this.redirectIfLoggedIn();
-	}
+  componentDidUpdate() {
+    this.redirectIfLoggedIn();
+  }
 
-	redirectIfLoggedIn() {
-		if (this.props.loggedIn) {
-			this.props.router.push("/quizzes");
-		}
-	}
+  redirectIfLoggedIn() {
+    if (this.props.loggedIn) {
+      this.props.router.push("/quizzes");
+    }
+  }
 
-	update(field) {
-		return (e) => this.setState ({
-			[field]: e.target.value
-		});
-	}
+  update(field) {
+    return (e) => this.setState ({
+      [field]: e.target.value
+    });
+  }
 
-	updateDropdown(event, index, value) {
-		this.setState({user_type: value});
-	}
+  updateDropdown(event, index, value) {
+    this.setState({user_type: value});
+  }
 
-	navLink() {
-    if (this.props.formType === "login") {
+  modalLink() {
+    if (this.state.modalType === "login") {
       return (
         <div>
-					<br/>
-          Don't have an account? <Link to="/signup">Sign Up</Link>
+          Don't have an account?
+          <button className="modalLink" onClick={this.openModal.bind(this, 'signup')}>
+            Sign Up
+          </button>
         </div>
-      );
+      )
     } else {
       return (
         <div>
-					<br/>
-          Already have an account? <Link to="/login">Log In</Link>
+          Already have an account?
+          <button className="modalLink" onClick={this.openModal.bind(this, 'login')}>
+            Log In
+          </button>
         </div>
-      );
+      )
     }
+  }
+
+  openModal(modalType) {
+    // event.preventDefault();
+    this.setState({
+      modalOpen: true,
+      modalType
+    })
+  }
+
+  closeModal(modalType) {
+    this.setState({
+      modalOpen: false
+    })
   }
 
   renderErrors() {
@@ -88,59 +112,69 @@ class SessionForm extends React.Component {
     );
   }
 
-	signupForm() {
-		if (this.props.formType === "signup") {
-			return (
-				<div>
-					<SelectField
-						disabled={false}
-						floatingLabelText="I am a:"
-						value={this.state.user_type}
-						onChange={this.updateDropdown}>
-						<MenuItem value="teacher" primaryText="Teacher" />
-						<MenuItem value="student" primaryText="Student" />
-					</SelectField>
-					<br/>
-					<TextField hintText="First Name"
-						value={this.state.first_name}
-						onChange={this.update("first_name")} />
-					<br/>
-					<TextField hintText="Last Name"
-						value={this.state.last_name}
-						onChange={this.update("last_name")} />
-				</div>
-			);
-		}
-	}
+  signupForm() {
+    if (this.state.modalType === "signup") {
+      return (
+        <div>
+          I am a: <nbsp/>
+          <select>
+            <option value="student" onChange={this.update("user_type")}>Student</option>
+            <option value="student" onChange={this.update("user_type")}>Parent</option>
+            <option value="student" onChange={this.update("user_type")}>Teacher</option>
+          </select>
+          <br/>
+          First Name<input
+            type="text"
+            placeholder="First Name"
+            value={this.state.first_name}
+            onChange={this.update("first_name")} />
+          <br/>
+          Last Name<input type="text" placeholder="Last Name"
+            value={this.state.last_name}
+            onChange={this.update("last_name")} />
+        </div>
+      );
+    }
+  }
 
-	render() {
-		return (
-			<div className="welcome-background">
-				<div className="login-form-container">
-					<form onSubmit={this.handleSubmit} className="login-form-box">
-						Welcome to Quizfoo!
-						<br/>
-						{this.renderErrors()}
-						<div className="login-form">
-							{this.signupForm()}
-							<TextField hintText="Email"
-								value={this.state.email}
-								onChange={this.update("email")} />
-							<TextField hintText="Password"
-								type="password"
-								value={this.state.password}
-								onChange={this.update("password")} />
-							<br/>
-							<RaisedButton type="submit" label="Submit" />
-							<br />
-							<RaisedButton onClick={this.guestTeacher} label="Teacher Demo"/>
-						</div>
-						{this.navLink()}
-					</form>
-				</div>
-			</div>
-		);
-	}
+  render() {
+    return (
+        <div>
+          <button onClick={this.openModal.bind(this, 'signup')}>Sign Up</button>
+          <button onClick={this.openModal.bind(this, 'login')}>Log In</button>
+          <Modal
+            contentLabel="Modal"
+            isOpen={this.state.modalOpen}
+            onRequestClose={this.closeModal}
+            className="session-modal"
+            overlayClassName="session-modal-overlay">
+            <h1>Welcome to Quizfoo!</h1>
+            <br/>
+
+            <form onSubmit={this.handleSubmit} className="login-form-box">
+              {this.renderErrors()}
+              <div className="login-form">
+                {this.signupForm()}
+                Email<input type="text" placeholder="Email"
+                  value={this.state.email}
+                  onChange={this.update("email")} />
+                <br />
+                Password<input type="text" placeholder="Password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")} />
+                <br/>
+                <input type="submit" label="Submit" />
+                <br />
+              </div>
+              {this.modalLink()}
+              <button onClick={this.guestTeacher} label="Teacher Demo">Teacher Demo</button>
+            </form>
+          </Modal>
+
+        </div>
+    );
+  }
 
 }
 
