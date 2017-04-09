@@ -37,8 +37,6 @@ const Root = ({ store }) => {
   );
 };
 
-// <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-// <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
 // <Route path="/index" component={QuizIndexContainer} />
 // <Route path="/quizzes" component={QuizCardsContainer} onEnter={_redirectIfLoggedOut} />
 // <Route path="/quiz/:quizId" component={QuizNavContainer} onEnter={_redirectIfLoggedOut} />

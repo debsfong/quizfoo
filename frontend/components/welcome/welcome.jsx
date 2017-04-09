@@ -17,7 +17,7 @@ class Welcome extends React.Component {
           <p className="tagline">Making quizzes can be tedious. Quizfoo makes it easy!</p>
           <button to="/signup" className="button">Get Started</button>
         </div>
-        <img className="welcome-background" src="https://images.unsplash.com/photo-1475092980020-2094a10518d2?dpr=2&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=&bg="></img>
+        <img className="welcome-background" src="http://res.cloudinary.com/dlbxdsfue/image/upload/v1478196715/pexels-photo-29608_ba75tb.jpg"></img>
       </div>
     );
   }
