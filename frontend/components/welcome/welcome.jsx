@@ -4,13 +4,9 @@ import { Link } from 'react-router';
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.guestTeacher = this.guestTeacher.bind(this);
   }
-
-  // welcomeButton() {
-  //   return this.props.currentUser ? <Link to="/quizzes">My Quizzes</Link> : <Link to="/signup">Get Started</Link>
-  // }
 
   guestTeacher(e) {
     e.preventDefault();
@@ -29,7 +25,7 @@ class Welcome extends React.Component {
       <div>
         <div className="welcome-main">
           <p className="tagline">Making quizzes can be tedious. Quizfoo makes it easy!</p>
-          <button onClick={this.guestTeacher} label="Get Started">Get Started</button>
+          <button onClick={this.guestTeacher}>Demo</button>
         </div>
         <img className="welcome-background" src="http://res.cloudinary.com/dlbxdsfue/image/upload/v1478196715/pexels-photo-29608_ba75tb.jpg"></img>
       </div>

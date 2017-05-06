@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import SessionFormContainer from '../session_form/session_form_container';
 
 class Header extends React.Component {
@@ -19,6 +19,18 @@ class Header extends React.Component {
     )
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser != this.props.currentUser) {
+      this.redirectIfLoggedOut();
+    }
+  }
+
+  redirectIfLoggedOut() {
+    if (this.props.currentUser) {
+      this.props.router.push("/");
+    }
+  }
+
   render() {
     return (
       <nav className="header-container">
@@ -33,4 +45,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

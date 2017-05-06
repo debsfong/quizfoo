@@ -26,9 +26,9 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if (this.state.modalType === 'login') {
-      this.props.login({user});
+      this.props.login({user}).then(() => this.props.router.push("/quizzes"));
     } else {
-      this.props.signup({user});
+      this.props.signup({user}).then(() => this.props.router.push("/quizzes"));
     }
   }
 
