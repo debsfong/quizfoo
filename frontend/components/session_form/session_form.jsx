@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
       email: "debra@email.com",
       password: "password"
       };
-    this.props.login({user});
+    this.props.login({user}).then(() => this.props.router.push("/quizzes"));
   }
 
   componentDidUpdate() {

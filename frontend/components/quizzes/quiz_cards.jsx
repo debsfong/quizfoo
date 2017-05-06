@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-// import QuizCardItem from './quiz_card_item';
+import QuizCardItem from './quiz_card_item';
 // import {GridList, GridTile} from 'material-ui/GridList';
 // import Dialog from 'material-ui/Dialog';
 // import TextField from 'material-ui/TextField';
@@ -24,7 +24,7 @@ class QuizCards extends React.Component {
   }
 
   componentWillMount() {
-    this.props.requestQuizzes("myQuizzes");
+    this.props.requestQuizzes();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -55,18 +55,6 @@ class QuizCards extends React.Component {
   }
 
   render() {
-    // const styles = {
-    //   root: {
-    //     display: 'flex',
-    //     flexWrap: 'wrap',
-    //     justifyContent: 'space-around'
-    //   },
-    //   gridList: {
-    //     width: 1000,
-    //     overflowY: 'auto'
-    //   },
-    // };
-    //
     // const disabled = (this.state.quiz.title == "");
     //
     // const actions = [
@@ -85,6 +73,9 @@ class QuizCards extends React.Component {
 // style={styles.root}
     return (
       <div>Hello from Quiz Cards!
+        {this.props.quizzes.map((quiz, idx) =>
+          <QuizCardItem key={idx} deleteQuiz={this.props.deleteQuiz} quiz={quiz}/>)
+        }
       </div>
 
     );

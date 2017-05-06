@@ -1,34 +1,29 @@
-export const fetchQuizzes = (requestType, success) => {
-  $.ajax({
+export const fetchQuizzes = (requestType) => {
+  return $.ajax({
     method: 'GET',
     url: `api/quizzes`,
     data: {requestType},
-    success,
-    error: () => console.log('error')
   });
 };
 
-export const fetchQuiz = (id, success) => {
-  $.ajax({
+export const fetchQuiz = (id) => {
+  return $.ajax({
     method: 'GET' ,
     url: `api/quizzes/${id}`,
-    success
   });
 };
 
-export const createQuiz = (quiz, success) => {
-  $.ajax({
+export const createQuiz = (quiz) => {
+  return $.ajax({
     method: 'POST' ,
     url: `api/quizzes`,
     data: {quiz},
-    success
   });
 };
 
-export const deleteQuiz = (id, success) => {
-  $.ajax({
+export const deleteQuiz = (id) => {
+  return $.ajax({
     method: 'DELETE' ,
     url: `api/quizzes/${id}`,
-    success
   });
 };

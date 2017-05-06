@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class Welcome extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Welcome extends React.Component {
       email: "debra@email.com",
       password: "password"
       };
-    this.props.login({user});
+    this.props.login({user}).then(() => this.props.router.push("/quizzes"));
   }
 
   render() {
@@ -25,7 +25,7 @@ class Welcome extends React.Component {
       <div>
         <div className="welcome-main">
           <p className="tagline">Making quizzes can be tedious. Quizfoo makes it easy!</p>
-          <button onClick={this.guestTeacher}>Demo</button>
+          <button onClick={this.guestTeacher}>Teacher Demo</button>
         </div>
         <img className="welcome-background" src="http://res.cloudinary.com/dlbxdsfue/image/upload/v1478196715/pexels-photo-29608_ba75tb.jpg"></img>
       </div>
@@ -33,4 +33,4 @@ class Welcome extends React.Component {
   }
 }
 
-export default Welcome;
+export default withRouter(Welcome);
