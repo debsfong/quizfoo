@@ -25,4 +25,16 @@
 
 .modalLink {
   background-color: $main;
+  color: white;
+  font-weight: bold;
+  padding: 10px 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+  border-style: none;
+  display: inline-block;
+  cursor: pointer;
 }

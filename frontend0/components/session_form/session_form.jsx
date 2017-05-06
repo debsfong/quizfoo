@@ -42,11 +42,11 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
-  redirectIfLoggedIn() {
-    if (this.props.loggedIn) {
-      this.props.router.push("/quizzes");
-    }
-  }
+  // redirectIfLoggedIn() {
+  //   if (this.props.loggedIn) {
+  //     this.props.router.push("/quizzes");
+  //   }
+  // }
 
   update(field) {
     return (e) => this.setState ({
@@ -116,28 +116,26 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="welcome-background">
-        <div className="login-form-container">
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            Welcome to Quizfoo!
+        <form onSubmit={this.handleSubmit}>
+          Welcome to Quizfoo!
+          <br/>
+          {this.renderErrors()}
+          <div className="login-form">
+            {this.signupForm()}
+            <TextField hintText="Email"
+              value={this.state.email}
+              onChange={this.update("email")} />
+            <TextField hintText="Password"
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")} />
             <br/>
-            {this.renderErrors()}
-            <div className="login-form">
-              {this.signupForm()}
-              <TextField hintText="Email"
-                value={this.state.email}
-                onChange={this.update("email")} />
-              <TextField hintText="Password"
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")} />
-              <br/>
-              <RaisedButton type="submit" label="Submit" />
-              <br />
-              <RaisedButton onClick={this.guestTeacher} label="Teacher Demo"/>
-            </div>
-            {this.navLink()}
-          </form>
-        </div>
+            <RaisedButton type="submit" label="Submit" />
+            <br />
+            <RaisedButton onClick={this.guestTeacher} label="Teacher Demo"/>
+          </div>
+          {this.navLink()}
+        </form>
       </div>
     );
   }

@@ -68,19 +68,15 @@ class SessionForm extends React.Component {
     if (this.state.modalType === "login") {
       return (
         <div>
-          Don't have an account?
-          <button className="modalLink" onClick={this.openModal.bind(this, 'signup')}>
-            Sign Up
-          </button>
+          Don't have an account? <nbsp/>
+        <div className="modalLink" onClick={this.openModal.bind(this, 'signup')} value="Sign Up">Sign Up</div>
         </div>
       )
     } else {
       return (
         <div>
-          Already have an account?
-          <button className="modalLink" onClick={this.openModal.bind(this, 'login')}>
-            Log In
-          </button>
+          Already have an account? <nbsp/>
+        <div className="modalLink" onClick={this.openModal.bind(this, 'login')} value="Log In">Log In</div>
         </div>
       )
     }
@@ -151,7 +147,7 @@ class SessionForm extends React.Component {
             <h1>Welcome to Quizfoo!</h1>
             <br/>
 
-            <form onSubmit={this.handleSubmit} className="login-form-box">
+            <form onSubmit={this.handleSubmit}>
               {this.renderErrors()}
               <div className="login-form">
                 {this.signupForm()}

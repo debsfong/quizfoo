@@ -37,6 +37,21 @@ input {
   margin: 5px;
 }
 
+input[type="submit"] {
+  background-color: $main-dark;
+  border: none;
+  border-color: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+}
+
 // select {
 //   border-radius: none;
 //   padding: 5px;
