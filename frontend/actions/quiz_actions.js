@@ -1,7 +1,5 @@
 import * as APIUtil from '../util/quiz_api_util';
 
-// export const REQUEST_QUIZZES = "REQUEST_QUIZZES";
-// export const REQUEST_QUIZ = "REQUEST_QUIZ";
 export const RECEIVE_QUIZZES = "RECEIVE_QUIZZES";
 export const RECEIVE_QUIZ = "RECEIVE_QUIZ";
 export const CREATE_QUIZ = "CREATE_QUIZ";
@@ -9,21 +7,11 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const DELETE_QUIZ = "DELETE_QUIZ";
 export const REMOVE_QUIZ = "REMOVE_QUIZ";
 
-// export const requestQuizzes = (requestType) => ({
-//   type: REQUEST_QUIZZES,
-//   requestType
-// });
-
 export const requestQuizzes = () => dispatch => (
   APIUtil.fetchQuizzes()
     .then(quizzes => dispatch(receiveQuizzes(quizzes)),
       err => dispatch(receiveErrors(err.responseJSON)))
 );
-
-// export const requestQuiz = (id) => ({
-//   type: REQUEST_QUIZ,
-//   id
-// });
 
 export const requestQuiz = (id) => dispatch => (
   APIUtil.fetchQuiz(id)
