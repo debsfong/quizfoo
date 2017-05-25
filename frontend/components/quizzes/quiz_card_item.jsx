@@ -1,19 +1,18 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import {Card, CardActions, CardHeader, CardTitle} from 'material-ui/Card';
 
 const QuizCardItem = ({quiz, deleteQuiz, router}) => {
+
   const handleClick = url => e => router.push(url);
 
   return (
-    <div>Hello from quiz card items!
+    <div className="grid-child">
       <h1>{quiz.title}</h1>
       <h2>{"By " + quiz.user.first_name + " " + quiz.user.last_name}</h2>
+      <button onClick={handleClick(`/quiz/${quiz.id}`)}>Edit</button>
+      <button onClick={() => this.props.deleteQuiz(quiz.id)}>Delete</button>
     </div>
   );
-  // <RaisedButton label="Edit" primary={true} onClick={handleClick(`/quiz/${quiz.id}`)}/>
-  // <RaisedButton label="Delete" onClick={() => deleteQuiz(quiz.id)}/>
 };
 
 export default withRouter(QuizCardItem);

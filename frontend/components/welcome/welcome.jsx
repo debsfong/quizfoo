@@ -8,6 +8,12 @@ class Welcome extends React.Component {
     this.guestTeacher = this.guestTeacher.bind(this);
   }
 
+  componentWillMount() {
+    if (this.props.currentUser) {
+      this.props.router.push("/quizzes");
+    }
+  }
+
   guestTeacher(e) {
     e.preventDefault();
     const user = {

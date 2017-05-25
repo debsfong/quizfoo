@@ -20,7 +20,23 @@
   background: #fff;
   overflow: auto;
   padding: 20px;
+  display: flex;
   align-items: center;
+  flex-direction: column;
+}
+
+.session-modal button {
+  padding: 10px;
+  margin: 5px;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-modal select {
+  margin: 5px;
 }
 
 .modalLink {
@@ -37,4 +53,5 @@
   border-style: none;
   display: inline-block;
   cursor: pointer;
+  margin: 7px;
 }

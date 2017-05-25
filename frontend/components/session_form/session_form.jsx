@@ -111,23 +111,28 @@ class SessionForm extends React.Component {
   signupForm() {
     if (this.state.modalType === "signup") {
       return (
-        <div>
-          I am a: <nbsp/>
-          <select>
-            <option value="student" onChange={this.update("user_type")}>Student</option>
-            <option value="student" onChange={this.update("user_type")}>Parent</option>
-            <option value="student" onChange={this.update("user_type")}>Teacher</option>
-          </select>
-          <br/>
-          First Name<input
-            type="text"
-            placeholder="First Name"
-            value={this.state.first_name}
-            onChange={this.update("first_name")} />
-          <br/>
-          Last Name<input type="text" placeholder="Last Name"
-            value={this.state.last_name}
-            onChange={this.update("last_name")} />
+        <div className="session-form">
+          <label>I am a:
+            <select>
+              <option value="student" onChange={this.update("user_type")}>Student</option>
+              <option value="student" onChange={this.update("user_type")}>Parent</option>
+              <option value="student" onChange={this.update("user_type")}>Teacher</option>
+            </select>
+          </label>
+          <label>First Name
+            <input
+              type="text"
+              placeholder="First Name"
+              value={this.state.first_name}
+              onChange={this.update("first_name")} />
+          </label>
+          <label>Last Name
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={this.state.last_name}
+              onChange={this.update("last_name")} />
+          </label>
         </div>
       );
     }
@@ -145,24 +150,21 @@ class SessionForm extends React.Component {
             className="session-modal"
             overlayClassName="session-modal-overlay">
             <h1>Welcome to Quizfoo!</h1>
-            <br/>
-
-            <form onSubmit={this.handleSubmit}>
-              {this.renderErrors()}
-              <div className="login-form">
-                {this.signupForm()}
-                Email<input type="text" placeholder="Email"
-                  value={this.state.email}
-                  onChange={this.update("email")} />
-                <br />
-                Password<input type="text" placeholder="Password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update("password")} />
-                <br/>
-                <input type="submit" label="Submit" />
-                <br />
-              </div>
+            {this.renderErrors()}
+            <form onSubmit={this.handleSubmit} className="session-form">
+              {this.signupForm()}
+              <label>Email
+                <input type="text" placeholder="Email"
+                value={this.state.email}
+                onChange={this.update("email")} />
+              </label>
+              <label>Password
+                <input type="text" placeholder="Password"
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")} />
+              </label>
+              <input type="submit" label="Submit" onClick={this.handleSubmit}/>
               {this.modalLink()}
               <button onClick={this.guestTeacher} label="Teacher Demo">Teacher Demo</button>
             </form>

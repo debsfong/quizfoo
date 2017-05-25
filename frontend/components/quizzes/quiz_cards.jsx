@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import QuizCardItem from './quiz_card_item';
-// import {GridList, GridTile} from 'material-ui/GridList';
-// import Dialog from 'material-ui/Dialog';
-// import TextField from 'material-ui/TextField';
-// import RaisedButton from 'material-ui/RaisedButton';
-// import FlatButton from 'material-ui/FlatButton';
-// import {Card, CardActions, CardHeader, CardTitle} from 'material-ui/Card';
 
 class QuizCards extends React.Component {
   constructor(props) {
@@ -72,7 +66,7 @@ class QuizCards extends React.Component {
 
 // style={styles.root}
     return (
-      <div>Hello from Quiz Cards!
+      <div className="grid">
         {this.props.quizzes.map((quiz, idx) =>
           <QuizCardItem key={idx} deleteQuiz={this.props.deleteQuiz} quiz={quiz}/>)
         }

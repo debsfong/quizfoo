@@ -29,7 +29,6 @@ class QuestionModal extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
     this.props.handleClose();
     e.preventDefault();
     const question = this.state;
