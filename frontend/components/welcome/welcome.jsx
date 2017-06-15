@@ -14,6 +14,12 @@ class Welcome extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.currentUser != nextProps.currentUser) {
+      this.props.router.push("/quizzes");
+    }
+  }
+
   guestTeacher(e) {
     e.preventDefault();
     const user = {
@@ -23,7 +29,7 @@ class Welcome extends React.Component {
       email: "debra@email.com",
       password: "password"
       };
-    this.props.login({user}).then(() => this.props.router.push("/quizzes"));
+    this.props.login({user})
   }
 
   render() {

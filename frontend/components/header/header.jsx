@@ -15,7 +15,7 @@ class Header extends React.Component {
 
   personalHeader(currentUser, logout) {
     return (
-      <button onClick={logout}>Log Out</button>
+      <button className="header-button" onClick={logout}>Log Out</button>
     )
   }
 
@@ -35,7 +35,7 @@ class Header extends React.Component {
     return (
       <nav className="header-container">
         <div className="header-left">
-          <button to="/">Quizfoo</button>
+          <button className="header-button" to="/quizzes">Quizfoo</button>
         </div>
         <div className="header-right">
           {this.props.currentUser ? this.personalHeader(this.props.currentUser, this.props.logout) : this.sessionLinks()}

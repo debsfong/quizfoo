@@ -41,15 +41,12 @@ class SessionForm extends React.Component {
       email: "debra@email.com",
       password: "password"
       };
-    this.props.login({user}).then(() => this.props.router.push("/quizzes"));
+    this.props.login({user})
   }
 
-  componentDidUpdate() {
-    this.redirectIfLoggedIn();
-  }
 
-  redirectIfLoggedIn() {
-    if (this.props.loggedIn) {
+  componentWillReceiveProps(nextProps) {
+    if (this.props.currentUser != nextProps.currentUser) {
       this.props.router.push("/quizzes");
     }
   }
@@ -141,8 +138,8 @@ class SessionForm extends React.Component {
   render() {
     return (
         <div>
-          <button onClick={this.openModal.bind(this, 'signup')}>Sign Up</button>
-          <button onClick={this.openModal.bind(this, 'login')}>Log In</button>
+          <button className="header-button" onClick={this.openModal.bind(this, 'signup')}>Sign Up</button>
+          <button className="header-button" onClick={this.openModal.bind(this, 'login')}>Log In</button>
           <Modal
             contentLabel="Modal"
             isOpen={this.state.modalOpen}

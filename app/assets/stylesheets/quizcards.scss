@@ -1,13 +1,21 @@
+@import "base/colors.scss";
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 200px);
+  padding: 15px;
 }
 
 .grid-child {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #98B5A8;
+  background-color: $light-background;
   padding: 10px;
-  margin: 10px;
+  margin: 15px;
+  border: 1px solid #CCCCCC;
+}
+
+.create-quiz {
+  background-color: $main-button;
 }

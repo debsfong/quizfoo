@@ -67,6 +67,9 @@ class QuizCards extends React.Component {
 // style={styles.root}
     return (
       <div className="grid">
+        <div className="create-quiz">
+          <button onClick={this.handleOpen}>+ Create a Quiz</button>
+        </div>
         {this.props.quizzes.map((quiz, idx) =>
           <QuizCardItem key={idx} deleteQuiz={this.props.deleteQuiz} quiz={quiz}/>)
         }
