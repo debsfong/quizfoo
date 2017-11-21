@@ -1,6 +1,5 @@
 # Quizfoo
 
-[Heroku](https://quizfoo.herokuapp.com/)
 [Trello](https://trello.com/b/9szx69wF/wufoo-clone)
 
 ## Minimum Viable Product
